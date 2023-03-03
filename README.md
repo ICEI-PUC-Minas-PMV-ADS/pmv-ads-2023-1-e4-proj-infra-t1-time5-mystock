@@ -1,23 +1,25 @@
-# TÍTULO DO PROJETO
+# MYSTOCK
 
-`CURSO`
+`ANÁLISE E DESENVOLVIMENTO DE SISTEMAS`
 
 `DISCIPLINA`
 
-`SEMESTRE`
+`4º SEMESTRE`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Arthur Rocha
+* Bárbara Augusta
+* Bruna Carline
+* Henrique Augusto
+* Raphael Latini
+* Raquel Fernandes
 
 ## Orientador
 
-* Nome completo do professor 1
+* Felipe Augusto Lara Soares
 
 ## Instruções de utilização
 
