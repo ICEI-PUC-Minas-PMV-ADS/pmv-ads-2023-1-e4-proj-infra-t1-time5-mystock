@@ -93,7 +93,6 @@ export default function ProductManagement() {
                       item: category.id,
                     });
                   }}
-                  active={actualCatgory === category.id}
                 >
                   <h2>{category.name}</h2>
                   {openSubcategorys.open &&

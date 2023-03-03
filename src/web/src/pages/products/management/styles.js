@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const CardsWrapper = styled.div`
   width: 100%;
   display: flex;
@@ -50,11 +49,11 @@ export const TitleCategoryCard = styled.div`
 
   .icon {
     font-size: 25px;
-    color: ${(props) => (props.active ? "#1bbbff" : "#fff")};
+    color: #fff;
   }
 
   h2 {
-    color: ${(props) => (props.active ? "#1bbbff" : "#fff")};
+    color: #fff;
     font-weight: 500;
   }
 `;
@@ -71,8 +70,9 @@ export const ModalCategoryCard = styled.div`
   padding: 0 20px 20px 20px;
 
   h3 {
-    font-weight: 500;
+    font-weight: 300;
     color: #fff;
+    font-size: 16px;
   }
 `;
 
