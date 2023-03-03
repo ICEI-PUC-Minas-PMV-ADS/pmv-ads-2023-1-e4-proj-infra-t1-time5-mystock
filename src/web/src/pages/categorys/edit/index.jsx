@@ -27,10 +27,10 @@ export default function EditCategorys() {
     <Container>
       <ContainerForm>
         <TitlePages>
-          Editar <span>Produto</span>
+          Editar <span>Categoria</span>
         </TitlePages>
         <DescriptionPages>
-          Ao lado é exibido as informações do produto. As alterações irão
+          Ao lado é exibido as informações da categoria. As alterações irão
           atualizar as informações.
         </DescriptionPages>
         <ContainerText>
