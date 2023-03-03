@@ -12,7 +12,6 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 
 * Arthur Rocha
 * Bárbara Augusta
-* Bruna Carline
 * Henrique Augusto
 * Raphael Latini
 * Raquel Fernandes
