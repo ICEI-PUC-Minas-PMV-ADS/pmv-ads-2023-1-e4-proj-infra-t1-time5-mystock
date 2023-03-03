@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  width: 100%;
-  height: calc(100vh - 62px);
-
-  @media (max-width: 700px) {
-    flex-direction: column;
-  }
-`;
 
 export const CardsWrapper = styled.div`
   width: 100%;

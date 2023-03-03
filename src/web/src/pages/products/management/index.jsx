@@ -3,8 +3,8 @@ import Card from "../../../components/card";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
 import SideManager from "../../../components/sideManager";
+import { Container } from "../../../styleGlobal/styles";
 import {
-  Container,
   CardsWrapper,
   CardSubcategorys,
   ContentCards,
@@ -39,6 +39,7 @@ export default function ProductManagement() {
 
   const products = [
     {
+      id: 0,
       name: "iPhone 11",
       amount: 27,
       subcategoryId: 0,
@@ -46,6 +47,7 @@ export default function ProductManagement() {
       createdAt: "11/02/2023",
     },
     {
+      id: 1,
       name: "iPhone 11",
       amount: 27,
       subcategoryId: 0,
@@ -53,6 +55,7 @@ export default function ProductManagement() {
       createdAt: "11/02/2023",
     },
     {
+      id: 2,
       name: "Blusa vermelha",
       amount: 27,
       subcategoryId: 1,
@@ -60,6 +63,7 @@ export default function ProductManagement() {
       createdAt: "11/02/2023",
     },
     {
+      id: 3,
       name: "Nike Shox",
       amount: 27,
       subcategoryId: 2,
@@ -144,6 +148,7 @@ export default function ProductManagement() {
                     amount={product.amount}
                     updatedAt={product.updatedAt}
                     createdAt={product.createdAt}
+                    id={product.id}
                   />
                 )}
               </>

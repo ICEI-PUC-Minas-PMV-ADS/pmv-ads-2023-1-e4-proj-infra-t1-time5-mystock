@@ -15,7 +15,6 @@ export const ContainerText = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  max-width: 400px;
   h4 {
     font-weight: 300;
   }
@@ -123,4 +122,16 @@ export const EndingText = styled.div`
     text-decoration: none;
     color: #00abf4;
   }
+`;
+
+export const Select = styled.select`
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  background-color: #525252;
+  color: #f0ffffde;
+  font-size: 12px;
+  outline: none;
 `;

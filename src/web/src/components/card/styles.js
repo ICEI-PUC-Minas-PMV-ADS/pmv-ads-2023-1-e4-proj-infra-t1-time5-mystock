@@ -2,9 +2,13 @@ import styled from "styled-components";
 
 export const CardStyle = styled.div`
   display: flex;
-  max-width: ${(props) => (props.m3 ? "30%" : "49%")};
+  max-width: ${(props) => {
+    if (props.m3) return "30%";
+    else if (props.max) return "100%";
+    else return "49%";
+  }};
   width: 100%;
-  height: 200px;
+  height: ${(props) => (props.max ? "100%" : "200px")};
   flex-direction: column;
   justify-content: space-between;
   padding: 20px;
@@ -13,10 +17,12 @@ export const CardStyle = styled.div`
 
   h2 {
     font-weight: 500;
+    font-size: ${(props) => (props.max ? "60px" : "25px")};
   }
 
   p {
     font-weight: 300;
+    font-size: ${(props) => (props.max ? "25px" : "20px")};
   }
 
   @media (max-width: 700px) {
