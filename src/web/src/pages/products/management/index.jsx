@@ -9,94 +9,60 @@ import {
   CardSubcategorys,
   ContentCards,
   ButtonBack,
+  TitleCategoryCard,
+  ModalCategoryCard,
 } from "./styles";
 import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
-import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { BsArrowLeft } from "react-icons/bs";
+import { MdKeyboardArrowRight, MdKeyboardArrowDown } from "react-icons/md";
 
 export default function ProductManagement() {
   const [actualCatgory, setActualCategory] = useState(0);
+  const [actualSubCatgory, setActualSubCategory] = useState(0);
   const [showProducts, setShowProducts] = useState(false);
+  const [openSubcategorys, setOpenSubcategorys] = useState({
+    open: false,
+    item: null,
+  });
+
+  const categorys = [
+    { name: "Eletrônicos", id: 0 },
+    { name: "Roupas", id: 1 },
+    { name: "Sapatos", id: 2 },
+  ];
+
   const subCategorys = [
-    { name: "Celulares", id: 0 },
-    { name: "Computadores", id: 1 },
-    { name: "Video games", id: 2 },
+    { name: "Celulares", categoryId: 0, id: 0 },
+    { name: "Camisas", categoryId: 1, id: 1 },
+    { name: "Tênis", categoryId: 2, id: 2 },
   ];
 
   const products = [
     {
       name: "iPhone 11",
       amount: 27,
-      categoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone 12",
-      amount: 27,
-      categoryId: 1,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone 13",
-      amount: 27,
-      categoryId: 2,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone XR",
-      amount: 27,
-      categoryId: 0,
+      subcategoryId: 0,
       updatedAt: "11/02/2023",
       createdAt: "11/02/2023",
     },
     {
       name: "iPhone 11",
       amount: 27,
-      categoryId: 0,
+      subcategoryId: 0,
       updatedAt: "11/02/2023",
       createdAt: "11/02/2023",
     },
     {
-      name: "iPhone 11",
+      name: "Blusa vermelha",
       amount: 27,
-      categoryId: 0,
+      subcategoryId: 1,
       updatedAt: "11/02/2023",
       createdAt: "11/02/2023",
     },
     {
-      name: "iPhone 11",
+      name: "Nike Shox",
       amount: 27,
-      categoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone 11",
-      amount: 27,
-      categoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone 11",
-      amount: 27,
-      categoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone 11",
-      amount: 27,
-      categoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      name: "iPhone 11",
-      amount: 27,
-      categoryId: 0,
+      subcategoryId: 2,
       updatedAt: "11/02/2023",
       createdAt: "11/02/2023",
     },
@@ -112,18 +78,51 @@ export default function ProductManagement() {
           Escolha uma categoria dos produtos a serem gerenciados
         </DescriptionPages>
         <ContentCards>
-          {subCategorys.map((subCategory, index) => {
+          {categorys.map((category, index) => {
             return (
-              <CardSubcategorys
-                key={index}
-                onClick={() => {
-                  setActualCategory(subCategory.id);
-                  setShowProducts(true);
-                }}
-                active={actualCatgory === subCategory.id}
-              >
-                <h2>{subCategory.name}</h2>
-                <BsArrowRight className="icon" />
+              <CardSubcategorys key={index}>
+                <TitleCategoryCard
+                  onClick={() => {
+                    setActualCategory(category.id);
+                    setOpenSubcategorys({
+                      open: !openSubcategorys.open,
+                      item: category.id,
+                    });
+                  }}
+                  active={actualCatgory === category.id}
+                >
+                  <h2>{category.name}</h2>
+                  {openSubcategorys.open &&
+                  openSubcategorys.item === category.id ? (
+                    <MdKeyboardArrowDown className="icon" />
+                  ) : (
+                    <MdKeyboardArrowRight className="icon" />
+                  )}
+                </TitleCategoryCard>
+                <ModalCategoryCard
+                  display={
+                    openSubcategorys.open &&
+                    openSubcategorys.item === category.id
+                  }
+                >
+                  {subCategorys.map((item, index) => {
+                    return (
+                      <>
+                        {item.categoryId === category.id && (
+                          <h3
+                            key={index}
+                            onClick={() => {
+                              setActualSubCategory(item.id);
+                              setShowProducts(true);
+                            }}
+                          >
+                            {item.name}
+                          </h3>
+                        )}
+                      </>
+                    );
+                  })}
+                </ModalCategoryCard>
               </CardSubcategorys>
             );
           })}
@@ -138,7 +137,7 @@ export default function ProductManagement() {
           {products.map((product, index) => {
             return (
               <>
-                {product.categoryId === actualCatgory && (
+                {product.subcategoryId === actualSubCatgory && (
                   <Card
                     key={index}
                     name={product.name}

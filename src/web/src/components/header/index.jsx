@@ -3,15 +3,12 @@ import { Link } from "react-router-dom";
 import {
   HeaderStyles,
   ContentNav,
-  DropDown,
   DataUser,
   NameUser,
   ImageUser,
 } from "./styles";
 
 export default function Header() {
-  const [modal, setModal] = useState(false);
-  const ItensModal = [{ name: "Eletrônicos" }, { name: "Brinquedos" }];
   return (
     <HeaderStyles>
       <h2 as={Link} to="/products">
@@ -20,20 +17,7 @@ export default function Header() {
       <ContentNav>
         <ul>
           <li>
-            <a onClick={() => setModal(!modal)}>Produtos</a>
-            {modal && (
-              <DropDown>
-                <ul>
-                  {ItensModal.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <a>{item.name}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </DropDown>
-            )}
+            <a>Produtos</a>
           </li>
           <li>
             <a>Categorias</a>
