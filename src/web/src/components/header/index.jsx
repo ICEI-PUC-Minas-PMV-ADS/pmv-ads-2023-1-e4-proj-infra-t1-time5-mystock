@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   HeaderStyles,
   ContentNav,
@@ -7,20 +6,31 @@ import {
   NameUser,
   ImageUser,
 } from "./styles";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
 
 export default function Header() {
+  const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
   return (
     <HeaderStyles>
-      <h2 as={Link} to="/products">
-        myStock
-      </h2>
-      <ContentNav>
+      <h2 onClick={() => navigate("/products")}>myStock</h2>
+      <RxHamburgerMenu
+        className="hamburguer"
+        onClick={() => {
+          setMenu((state) => !state);
+        }}
+      />
+      <ContentNav display={menu}>
         <ul>
           <li>
-            <a>Produtos</a>
+            <a onClick={() => navigate("/products")}>Produtos</a>
           </li>
           <li>
-            <a>Categorias</a>
+            <a onClick={() => navigate("/categorys")}>Categorias</a>
+          </li>
+          <li className="user-data">
+            <a onClick={() => navigate("/")}>Meus dados</a>
           </li>
         </ul>
         <DataUser>
