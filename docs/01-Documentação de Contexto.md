@@ -1,46 +1,41 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+MyStock é um projeto que visa a criação de uma aplicação de controle de estoque para diversos lojistas, aprensentando tanto uma solução web quanto uma solução mobile. A intenção desse projeto é permitir a diversos usuário cadastrados criarem categorias categorias amplas de acordo coma variedade de produtos em seu negócio, bem como subcategorias para tipos de produto. A partir dessa opção de criação de categorias e subcategorias o usuário terá liberdade em editar as mesmas, podendo excluir, adicionar uma nova ou até mesmo uma simples mudança de nome. Dentro das subcategorias o usuário poderá incluir os seus produtos e quantidades de cada um, posteriormente podendo edita-lás de modo a controlar o estoque de acordo com a entrada e saída de cada produto.
+
+MyStock além de prover esse controle de estoque personalizado para o usuário permite também a manutenção via web e mobile, conferindo conforto e praticidade.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
 
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
+A classe baixa e média do Brasil vive um momento de mudanaças e adaptações, com a transição de governo onde o atual presidente assumiu um país destrúido pela administração irresponsável e incompentente do anterior presidente e seus ministros, paralela a uma repuração do mercado muito abalada nos anos anteriores marcados pela pandemia de COVID-19 (responsável por grande desesmprego e fechamento de micro e pequenas empresas) e concorrentemente com a reforma trabalhista de 2017 onde as condições e direitos dos trabalhadores foram ceifadas de forma a criar regimes trabalhistas abusivos.
 
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+Os fatos citados acima contribuíram para que mais pessoas abrissem seus empreendimentos em diversos setores, buscando uma fonte de renda alternativa as poucas ofertas de emprego com condições minimamente dignas.
 
-> **Links Úteis**:
-> - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
-> - [Matriz Certezas, Suposições e Dúvidas](https://medium.com/educa%C3%A7%C3%A3o-fora-da-caixa/matriz-certezas-suposi%C3%A7%C3%B5es-e-d%C3%BAvidas-fa2263633655)
-> - [Brainstorming](https://www.euax.com.br/2018/09/brainstorming/)
+Esse crescimento no empreendedorismo traz com si diversas empresas com muita força de vontade porém com recursos limitados. Na área do comércio de bens muitas vezes o controle de estoque é feito de modo arcaico utilizando de caneta e papel, onde existe uma grande facilidade de se cometer erros, perda de informações e desorganização.
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
+O objetivo geral deste projeto é a criação de solução tecnológica que auxilie os donos de comércios de bens no controle e organização de seus estoques.
 
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
- 
-> **Links Úteis**:
-> - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
+Como objetivos específicos, podemos ressaltar:
+
+●	Permitir que usuários possam criar categorias de acordo com o seus negócio;
+
+●	Permitir que usuários possam criar subcategorias dentro de cada categoria de acordo com a sua necessidade;
+
+●	Permitir que usuários possam cadastrar os seus produtos, bem como a quantidade de cada produto nas categorias desejadas;
+
+●	Permitir que usuários possam editar e exluir categorias, subcategoria e produtos de acordo com o seu desejo;
+
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
+Como exposto no problema, existe um crescente mercado de comércio de bens que utiliza métodos arcaicos de controle. Tendo isso em vista uma aplicação que permite uma fácil organização das categorias de produtos, subcategorias de produtos, produtos e quatidades, permite uma visualização simplificada de todo seu estoque e um controle de preciso através de poucos cliques.
 
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
-> **Links Úteis**:
-> - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
+Com a possibilidade do usuário criar e editar todas as informações através de poucos cliques cria-se um ambiente personalizado, seguro e organizado. Entregando uma solução prática e eficiente para o problema de uma grande diversidade de empreendimentos.
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+Em 2020 o Brasil teve o maior número de novos empreendedores de sua história. Pois muitas pessoas decidiram investir num negócio próprio por subsistência ou renda extra, já que muitos também tiveram redução de trabalho e jornada além de precarização das leis trabalhistas. Neste mesmo ano, 3,36 milhões de novas empresas foram abertas, onde os MEIs tiveram um crscimento de 13,26%.
 
-Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
+Tendo em vista que esses novos empreendimento são originários das classes baixa e média e sem oportunidades de profissões com estabilidade e qualidade, é possível identificar o público alvo como empreendedores do ramo de comércio de bens com idade variando de 30 a 60 anos de idade.
 
-> **Links Úteis**:
-> - [Público-alvo](https://blog.hotmart.com/pt-br/publico-alvo/)
-> - [Como definir o público alvo](https://exame.com/pme/5-dicas-essenciais-para-definir-o-publico-alvo-do-seu-negocio/)
-> - [Público-alvo: o que é, tipos, como definir seu público e exemplos](https://klickpages.com.br/blog/publico-alvo-o-que-e/)
-> - [Qual a diferença entre público-alvo e persona?](https://rockcontent.com/blog/diferenca-publico-alvo-e-persona/)
