@@ -1,26 +1,100 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+Os pontos mais relevantes a serem tratados neste projeto foram abordados e exemplificados através de personas fictícias e suas respectivas histórias, expondo casos comuns dos problemas levantados na pesquisa, que foram elaborados a partir do conhecimento comum e visão de mercado dessa equipe.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+ 	Carlos
+	Idade: 41
+Ocupação: Dono de papelaria, Micro empreendedor individual. Casado, possui um filho adolescente e um pequeno cão que trata como filho.	
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+Aplicativos:
+●	Instagram
+●	Whatsapp
+●	Telegram
+●	Youtube
+
+Motivações:
+●	Passear com seu pet.
+●	Colocar roupas divertidas no seu pet.
+●	Estar próxima das irmãs e sobrinhos
+	
+ Frustrações:
+●	Possui dificuldade de manter o controle do seu estoque.
+●	Gostaria de ter um negócio de sucesso para deixar de herança para o seu filho.	
+
+Hobbies, História:
+●	Workaholic.
+●	Trabalhou 11 anos como contador e foi demitido durante a pandemia.
+
+ 	Aline
+	Idade: 30
+Ocupação: Dona de petshop, Microempresária.	
+
+Aplicativos:
+●	Instagram
+●	Whatsapp
+●	Facebook
+
+Motivações:
+●	Estimular a educação dos pets.
+●	Sonha em ver o seu petshop se tornar uma grande rede de petshops
+
+Frustrações:
+●	Maus tratos a animais.
+●	Dificuldade em gerenciar o estoque, principalmente após o crescimento da loja.	
+
+Hobbies, História:
+●	Possui uma filosofia de vida:” todos os animais assim como as pessoas devem conviver com outros para auxiliar seu desenvolvimento”. 
+●	Apaixonada por animais e sonha em ampliar a loja, porém não possui um sistema que a auxilie.
+
+
+ 	Eustáquio
+	Idade: 55
+Ocupação: Dono de um loja de eletronicos e manutenção de celulares. 	
+
+Aplicativos:
+●	Instagram
+●	Aplicativos 
+de bancos
+●	Whatsapp
+
+Motivações:
+●	Se tornar um grande revendedor especializado em produtos Apple.
+●	Sair com os amigos	para ouvir pagode ao vivo.
+
+Frustrações:
+●	Não consegue contratar um ajudante para a loja, onde faz todo o serviço sozinho.
+●	Dificuldade em controlar o estoque, já deixando de fazer vendas por achar que possuia o produto em estoque.
+●	Dificuldade em mexer com computador.	
+
+Hobbies, História:
+●	Ama tomar uma cerveja com os amigos aos domingos ouvindo um pagode ao vivo.
+●	Eustáquio por ter dificuldade com computadores realiza o controle de estoque através de um caderno brochurão, no qual já perdeu diversas vezes e tem dificuldade de manté-lo atualizado.
+
+
+ 	Ruan
+	Idade: 38
+Ocupação: Dono de uma pequena mercearia. Vende produtos de limpeza, alimentos básicos do lar, bebida em geral e também salgados que ele mesmo produz.
+
+Aplicativos:
+●	Instagram
+●	Linkedin
+●	Facebook
+●	Whatsapp
+
+Motivações
+●	Sonha em voltar a trabalhar como vendedor de tubos para perfuração de poços.
+●	Conseguir pagar por um curso de nível superior para sua filha.
+●	Se tornar dono de um grande mercado local.
+	
+ Frustrações
+●	Ficou desempregado durante a pandemia e não conseguir recolocação na única atividade que possui conhecimento.
+●	Ter um controle de estoque de fácil utilização para controlar os produtos que vende e também os produtos que usa para fazer os salgados.	
+
+Hobbies, História
+●	É apaixonado por vendas e após perder seu emprego viu como única solução abrir sua propria mercearia para tentar garantir a subsistencia de sua filha.
 
 ## Histórias de Usuários
 
@@ -44,11 +118,11 @@ Apresente aqui as histórias de usuário que são relevantes para o projeto de s
 
 ### Análise da Situação Atual
 
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Como exposto na justificativa esse projeto visa entregar um sistema simples e personalizável para diversos empreendedores que não possuem condições de criar softwares próprios de gerenciamento de estoque. Portanto é possível concluir que no momento atual a aplicação tem capacidae de atender diversas empresas.
 
 ### Descrição Geral da Proposta
 
-Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
+Como proposta para facilitar e otimizar o controle de estoque de diversas empresas que não possuem esse serviço. Trazemos um sistema com versão mobile e web com possibilidade de criar e editar categoria e subcategorias de produtos, bem como cadastrar produtos de acordo com a demanda do usuário. De modo que o usuário tenha uma vizualização por produto dentro de cada subcategoria e de diversas subcategorias dentro de uma categoria. Gerando um controle de estoque de forma que o usuário consiga adicionar novos produtos, excluir produtos que não fazer mais parte do seu acervo e adicionar ou subtrair qunatidades de produtos específicos.
 
 ### Processo 1 – NOME DO PROCESSO
 
@@ -84,25 +158,18 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 ### Requisitos não Funcionais
 
+A tabela a seguir apresenta os requisitos não funcionais que o projeto deverá atender.
+
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| A interface web deve ser desenvolvida em React | ALTA| 
+|RNF-001| A interface mobile deve ser desenvolvida em React Native | ALTA| 
+|RNF-001| O back-end e API deve ser desenvolvido em C#.net | ALTA| 
+|RNF-001| O banco de dados deve ser construído com SQL Server | ALTA| 
+|RNF-002| O aplicativo deverá ser compatível com Android |  ALTA |
+|RNF-003| O aplicativo deve ter bom nível de contraste entre os elementos da tela em conformidade  |  MÉDIA | 
+|RNF-004| O aplicativo deve possuir um tempo de resposta dos componentes inferior a 3 segundos |  ALTA | 
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -112,8 +179,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
+|03| A equipe não pode subcontratar o desenvolvimento do trabalho. |
 
 > **Links Úteis**:
 > - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
@@ -168,6 +234,10 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 
 ## Gestão de Orçamento
 
-O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
+O cronograma de custos foi estipulado utilizando o salário mensal médio de um estagiário na área de tecnologia como R$1.500,00 por 30 horas semanais . Levando em conta o período de desenvolvimento de 4 meses do projeto e que todos os integrantes do grupo irão realizar tarefas de diversas naturezas chegamos ao valor de R$6.000,00 por integrante durante todo o decorrer do projeto. Somando a estimativa de valor de todos integrantes obtemos um total de R$30.000,00 como custo total do projeto.
 
-![Orçamento](img/02-orcamento.png)
+Referente aos custos com máquinas, softwares e hospedagem, o grupo optou por em um primeiro momento utilizar recursos gratuitos devido a ser um primeiro contato com a criação de aplicativos.
+
+![custos](https://user-images.githubusercontent.com/91069587/222794997-b794311a-9b95-4445-b5bd-95dc4b54c40b.jpg)
+
+
