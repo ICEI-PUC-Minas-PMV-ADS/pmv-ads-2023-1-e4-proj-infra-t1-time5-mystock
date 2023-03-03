@@ -17,7 +17,7 @@ export const CardStyle = styled.div`
 
   h2 {
     font-weight: 500;
-    font-size: ${(props) => (props.max ? "60px" : "25px")};
+    font-size: ${(props) => (props.max ? "45px" : "25px")};
   }
 
   p {
