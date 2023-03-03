@@ -42,12 +42,21 @@ export const CardSubcategorys = styled.div`
   display: flex;
   width: 100%;
   height: fit-content;
-  justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  flex-direction: column;
   border: 1px solid #fff3;
   border-radius: 5px;
   cursor: pointer;
+`;
+
+export const TitleCategoryCard = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100;
+  padding: 20px;
+
   .icon {
     font-size: 25px;
     color: ${(props) => (props.active ? "#1bbbff" : "#fff")};
@@ -56,6 +65,23 @@ export const CardSubcategorys = styled.div`
   h2 {
     color: ${(props) => (props.active ? "#1bbbff" : "#fff")};
     font-weight: 500;
+  }
+`;
+
+export const ModalCategoryCard = styled.div`
+  display: flex;
+  max-height: 300px;
+  height: 100%;
+  overflow: auto;
+  width: 100%;
+  flex-direction: column;
+  gap: 15px;
+  display: ${(props) => (props.display ? "flex" : "none")};
+  padding: 0 20px 20px 20px;
+
+  h3 {
+    font-weight: 500;
+    color: #fff;
   }
 `;
 

@@ -16,9 +16,20 @@ export const HeaderStyles = styled.div`
     cursor: pointer;
     flex: 1;
   }
+
+  .hamburguer {
+    font-size: 25px;
+    display: none;
+    cursor: pointer;
+
+    @media (max-width: 700px) {
+      display: flex;
+    }
+  }
 `;
 
 export const ContentNav = styled.nav`
+  background-color: #454545;
   display: flex;
   gap: 20px;
   flex: 1;
@@ -37,38 +48,54 @@ export const ContentNav = styled.nav`
         font-size: 14px;
         font-weight: 300;
         cursor: pointer;
+        text-decoration: none;
+        color: #fff;
         :hover {
           color: #ccc;
         }
       }
     }
+
+    .user-data {
+      display: none;
+
+      @media (max-width: 700px) {
+        display: flex;
+      }
+    }
   }
-`;
 
-export const DropDown = styled.div`
-  background-color: #454545;
-  width: 170px;
-  padding: 10px 15px;
-  max-width: 400px;
-  overflow: auto;
-  border-radius: 5px;
-  border: 1px solid #fff3;
-  position: absolute;
-  margin-top: 10px;
-  z-index: 1000;
-
-  ul {
-    display: flex;
+  @media (max-width: 700px) {
+    display: ${(props) => (props.display ? "flex" : "none")};
+    position: absolute;
     flex-direction: column;
-    gap: 5px;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    align-items: flex-start;
+    z-index: 100000;
+    border-bottom: 1px solid #fff3;
 
-    li {
-      margin: 0;
-      padding: 0;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
 
-      a {
-        font-size: 14px;
-        margin: 0;
+      li {
+        list-style: none;
+        position: relative;
+
+        a {
+          font-size: 14px;
+          font-weight: 300;
+          cursor: pointer;
+          text-decoration: none;
+          color: #fff;
+          :hover {
+            color: #ccc;
+          }
+        }
       }
     }
   }
@@ -82,6 +109,10 @@ export const DataUser = styled.div`
   cursor: pointer;
   border-left: 1px solid #fff3;
   padding-left: 20px;
+
+  @media (max-width: 700px) {
+    display: none;
+  }
 `;
 
 export const NameUser = styled.div`

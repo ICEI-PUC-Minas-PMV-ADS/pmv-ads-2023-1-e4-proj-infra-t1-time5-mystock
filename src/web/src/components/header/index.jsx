@@ -1,42 +1,36 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   HeaderStyles,
   ContentNav,
-  DropDown,
   DataUser,
   NameUser,
   ImageUser,
 } from "./styles";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { useState } from "react";
 
 export default function Header() {
-  const [modal, setModal] = useState(false);
-  const ItensModal = [{ name: "Eletrônicos" }, { name: "Brinquedos" }];
+  const [menu, setMenu] = useState(false);
+  const navigate = useNavigate();
   return (
     <HeaderStyles>
-      <h2 as={Link} to="/products">
-        myStock
-      </h2>
-      <ContentNav>
+      <h2 onClick={() => navigate("/products")}>myStock</h2>
+      <RxHamburgerMenu
+        className="hamburguer"
+        onClick={() => {
+          setMenu((state) => !state);
+        }}
+      />
+      <ContentNav display={menu}>
         <ul>
           <li>
-            <a onClick={() => setModal(!modal)}>Produtos</a>
-            {modal && (
-              <DropDown>
-                <ul>
-                  {ItensModal.map((item, index) => {
-                    return (
-                      <li key={index}>
-                        <a>{item.name}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </DropDown>
-            )}
+            <a onClick={() => navigate("/products")}>Produtos</a>
           </li>
           <li>
-            <a>Categorias</a>
+            <a onClick={() => navigate("/categorys")}>Categorias</a>
+          </li>
+          <li className="user-data">
+            <a onClick={() => navigate("/")}>Meus dados</a>
           </li>
         </ul>
         <DataUser>
