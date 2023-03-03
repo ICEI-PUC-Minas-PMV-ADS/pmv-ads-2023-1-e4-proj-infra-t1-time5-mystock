@@ -9,8 +9,8 @@ export default function CategoryManagement() {
     { name: "Roupas", id: 1 },
     { name: "Brinquedos", id: 2 },
     { name: "Comidas", id: 3 },
-    { name: "Móveis", id: 3 },
-    { name: "Enxovais", id: 3 },
+    { name: "Móveis", id: 4 },
+    { name: "Enxovais", id: 5 },
   ];
   return (
     <Container>
@@ -24,13 +24,14 @@ export default function CategoryManagement() {
         </DescriptionPages>
       </AlignText>
       <CardsWrapper>
-        {categorys.map((product, index) => {
+        {categorys.map((category, index) => {
           return (
             <Card
               key={index}
-              name={product.name}
-              updatedAt={product.updatedAt}
-              createdAt={product.createdAt}
+              name={category.name}
+              updatedAt={category.updatedAt}
+              createdAt={category.createdAt}
+              id={category.id}
               m3
             />
           );

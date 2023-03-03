@@ -8,6 +8,6 @@ export const ContainerFormStyle = styled.div`
   padding: 10px;
   height: 100%;
   border-right: 1px solid #fff3;
-  gap: 15px;
-  padding: 0 20px;
+  padding: 0 30px;
+  justify-content: center;
 `;
