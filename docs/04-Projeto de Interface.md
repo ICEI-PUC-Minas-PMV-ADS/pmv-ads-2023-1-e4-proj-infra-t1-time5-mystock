@@ -81,6 +81,79 @@ Tela Deletar categoria
 
 ![deletar-categoria](https://user-images.githubusercontent.com/85761080/222923688-738744c3-2c04-4832-8bdd-0243634c3987.png)
 
+## Mobile
+
+Tela Olá
+
+![ola](https://user-images.githubusercontent.com/85761080/222924399-eb5170fe-e827-4d03-a9f2-40b1b82ced04.png)
+
+Tela Login
+
+![login](https://user-images.githubusercontent.com/85761080/222924414-8b5877ba-cb8d-45af-99db-145055c5ac37.png)
+
+Tela Cadastro
+
+![cadastro](https://user-images.githubusercontent.com/85761080/222924426-ff247229-870d-4caa-a0fd-ff0cc8fa4683.png)
+
+Tela Home
+
+![home](https://user-images.githubusercontent.com/85761080/222924431-894eb079-960c-4b5c-b9dc-165842790688.png)
+
+Tela Gerenciar produtos
+
+![gerenciar-produto](https://user-images.githubusercontent.com/85761080/222924443-42eeb71f-61d9-4b89-9773-0c4283863697.png)
+![gerenciar-produtos-2](https://user-images.githubusercontent.com/85761080/222924592-608eb5a4-bfee-425c-a5ee-c56d7e056047.png)
+
+Tela Gerenciar categorias
+
+![gerenciar-categorias](https://user-images.githubusercontent.com/85761080/222924462-f4c4e6d7-245f-4e67-bd3b-d9f339864d97.png)
+
+Tela Gerenciar subcategorias
+
+![gerenciar-subcategorias](https://user-images.githubusercontent.com/85761080/222924473-a026a8b4-a7e7-4d94-b5a2-d09a65782295.png)
+![gerenciar-subcategorias-2](https://user-images.githubusercontent.com/85761080/222924600-28497e7b-1017-453b-bd5c-a2744efdaf5f.png)
+
+Tela Cadastrar produto
+
+![cadastrar-produto](https://user-images.githubusercontent.com/85761080/222924536-4a13bfe4-686e-4bfc-a696-fdc3cb893fdf.png)
+
+Tela Cadastrar categoria
+
+![cadastrar-categoria](https://user-images.githubusercontent.com/85761080/222924543-717e5b36-d38b-4d42-87cb-f5d6e20bc61e.png)
+
+Tela Cadastrar subcategoria
+
+![cadastrar-subcategoria](https://user-images.githubusercontent.com/85761080/222924548-86d37394-9477-4de7-bf21-f52940fb0dec.png)
+
+Tela Editar produto
+
+![editar-produto](https://user-images.githubusercontent.com/85761080/222924568-141c250b-20fc-4bb9-b2fd-eed64d291ac8.png)
+
+Tela Editar categoria
+
+![editar-categoria](https://user-images.githubusercontent.com/85761080/222924571-9e3f6d34-a036-4373-97d5-39ba876cbd07.png)
+
+Tela Editar subcategoria
+
+![editar-subcategoria](https://user-images.githubusercontent.com/85761080/222924579-a51ee53e-d4b2-47ab-aa0b-cfa4e9db3113.png)
+
+Tela Minha conta
+
+![minha-conta](https://user-images.githubusercontent.com/85761080/222924616-dfb99c5f-d553-4580-a705-0e37bc1666e2.png)
+
+Tela Deletar produto
+
+![deletar-produto](https://user-images.githubusercontent.com/85761080/222924621-6eb07f54-697f-4b18-8719-6433ac34be57.png)
+
+Tela Deletar categoria
+
+![deletar-categoria](https://user-images.githubusercontent.com/85761080/222924627-6d22b116-73f0-42ff-af7c-1fdbd6cb2659.png)
+
+Tela Deletar subcategoria
+
+![deletar-subcategoria](https://user-images.githubusercontent.com/85761080/222924641-f5e57dc4-1e55-4e71-8a8c-739bba968392.png)
+
+
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
