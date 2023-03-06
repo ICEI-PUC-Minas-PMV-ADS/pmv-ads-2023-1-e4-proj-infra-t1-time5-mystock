@@ -7,7 +7,7 @@ Os pontos mais relevantes a serem tratados neste projeto foram abordados e exemp
 
  	Carlos
 	Idade: 41
-Ocupação: Dono de papelaria, Micro empreendedor individual. Casado, possui um filho adolescente e um pequeno cão que trata como filho.	
+Ocupação: Dono de papelaria, Micro empreendedor individual. Casado, possui um filho adolescente.	
 
 Aplicativos:
 ●	Instagram
@@ -16,9 +16,8 @@ Aplicativos:
 ●	Youtube
 
 Motivações:
-●	Passear com seu pet.
-●	Colocar roupas divertidas no seu pet.
-●	Estar próxima das irmãs e sobrinhos
+●	Expandir sua papelaria.
+●	Garantir uma vida confortável para sua família.
 	
  Frustrações:
 ●	Possui dificuldade de manter o controle do seu estoque.
@@ -62,7 +61,7 @@ de bancos
 
 Motivações:
 ●	Se tornar um grande revendedor especializado em produtos Apple.
-●	Sair com os amigos	para ouvir pagode ao vivo.
+●	Sair com os amigos para ouvir pagode ao vivo.
 
 Frustrações:
 ●	Não consegue contratar um ajudante para a loja, onde faz todo o serviço sozinho.
@@ -102,17 +101,17 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+|Carlos | Segregagar os produtos que eu possuo em categorias          | Organizar a disponibilidade de produtos por materiais escolares, escritório, brinquedos entre outras               |
+|Carlos       | Criar subtagerias dentro das categrias                 | Segregagar os materias escolares em cadernos, livros, lapis, canetas, etc. |
+|Carlos       | Criar produtos bem como controlar suas quantidades                 | Ter o controle de quantos cadernos de capa dura de cada marca ainda tenho em estoque e planejar minha compras |
+|Aline       | Poder excluir produtos já cadastrados no sistema               | Muitas vezes qunado o produto não possui uma boa saída ele é descontinuado do acervo da loja |
+|Aline       | Editar a quantidade de produtos disponíveis várias vezes no dia                 | Permitir que toda venda realizada seja atualizadaem tempo real |
+|Aline       | Criar categorias por espécie de animal                 | Permitir que realize uma consulta fácil de acordo com o animal que o cliente possui |
+|Eustáquio       | Controlar a quantidade de produtos do estoque pelo telefone celular                 | Permitir que ele realize as alterações facilmente por ter dificuldade com computadores |
+|Eustáquio       | Criar categorias para celulares e para produtos usados na manutenção                 | Ter uma visão não apenas do telefones mas também dos materias consumidos durante manutenções |
+|Eustáquio       | Criar novos produtos dentro de cada subcategoria                 | Estar sempre atualizado com os lançamentos e novidades no mercado |
+|Ruan       | Criar categorias para comidas e bebidas                 | Para ter uma visualização de cada tipo de pedido que irá realizar ao fornecedor |
+|Ruan     | Criar subcategorias para bebidas                 | Permitir que eu separe as bebidas que são coca-cola, pepsico e ambev para que tenha uma visão da necessidade de compra por fornecedor |
 
 ## Modelagem do Processo de Negócio 
 
@@ -153,8 +152,25 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deverá permitir que o usuário registre-se e efetue login | ALTA |
+|RF-002| O sistema deverá permitir que o usuário efetue logout | ALTA |
+|RF-003| O sistema deverá possuir header com nome e email do usuário | ALTA |
+|RF-004| O sistema deverá possuir sidebar com opções de navegação | ALTA |
+|RF-005| O sistema deverá permitir o usuário cadastrar categorias de produtos | ALTA |
+|RF-006| O sistema deverá permitir o usuário cadastrar subcategorias de produtos | ALTA |
+|RF-007| O sistema deverá permitir o usuário cadastrar produtos relacionado a uma subcategoria | ALTA |
+|RF-008| O sistema deverá permitir o usuário a editar e deletar categorias | ALTA |
+|RF-009| O sistema deverá permitir o usuário a editar e deletar subcategorias | ALTA |
+|RF-010| O sistema deverá permitir o usuário a editar e deletar produtos | ALTA |
+|RF-011| O sistema deverá exibir as categorias existentes | ALTA |
+|RF-012| O sistema deverá exibir as subcategorias existentes de acordo com a categoria | ALTA |
+|RF-012| O sistema deverá exibir os produtos existentes de acordo com a subcategoria | ALTA |
+|RF-013| O sistema deverá exibir a quantidade de produtos totais e a quantidade de produtos respectivos a subcategoria | ALTA |
+|RF-014| O sistema deverá permitir que o usuário cadastre produtos com imagem do produto | BAIXA|
+|RF-015| O sistema deverá permitir que o usuário efetua exclusão de conta e edite seus dados | BAIXA| 
+|RF-016| O sistema deverá permitir que o usuário efetue busca para categorias e produtos | BAIXA|
+|RF-017| O sistema deverá permitir que o usuário tenha acesso a um relatório de produtos e categorias | BAIXA|
+|RF-018| O sistema deverá ter informação de preço de venda e compra do produto | BAIXA|
 
 ### Requisitos não Funcionais
 
@@ -181,22 +197,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |02| Não pode ser desenvolvido um módulo de backend        |
 |03| A equipe não pode subcontratar o desenvolvimento do trabalho. |
 
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+![ações](https://user-images.githubusercontent.com/91069587/223223708-33ee5410-2ebf-489d-9ee2-bd33156f6508.jpg)
 
 # Matriz de Rastreabilidade
 
@@ -214,7 +218,9 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 
 # Gerenciamento de Projeto
 
-De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
+O projeto será realizado em sprints de tempo variável de acordo com as tarefas definidas no backlog. No qual será reavaliado sempre ao final de uma sprint. Para um gerenciamento mais efetivo das atividades, bem como propondo melhorias na comunicação e colaboração, foi definido que às segundas-feiras às 21:00 serão celebradas diversas reuniões de acordo com a necessidade do momento do grupo. Nessas reuniões serão realizados ritos Scrum como: Code Reviews, Overviews, Plannings com Poker Planning e Sprint Reviews.
+
+O gerenciamento do projeto bem como seu backlog serão realizados através dos boards do azureDevOps.
 
 ## Gerenciamento de Tempo
 
