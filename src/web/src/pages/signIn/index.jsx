@@ -13,7 +13,7 @@ import {
 } from "../../components/componentsForm/stylesGlobal";
 import FilledButton from "../../components/filledButton";
 
-export default function Login() {
+export default function SignIn() {
   return (
     <Container>
       <LeftLogin image="images/background.png">
@@ -32,23 +32,35 @@ export default function Login() {
       </LeftLogin>
       <RightLogin>
         <MainText>
-          <Text>Login</Text>
-          <h4>Faça seu login para acessar o app</h4>
+          <Text>Cadastro</Text>
         </MainText>
         <TextField>
+            <Label>Primeiro Nome</Label>
+            <Input
+              type="text"
+              name="firstName"
+              placeholder="Ex: Luana"
+            />
+            <Label>Último Nome</Label>
+            <Input
+              type="text"
+              name="lastName"
+              placeholder="Ex: Silva"
+            />
           <Label>E-mail</Label>
-          <Input
-            type="text"
-            name="email"
-            placeholder="Ex: luanasilva@email.com"
-          />
+                    <Input
+                      type="text"
+                      name="email"
+                      placeholder="Ex: luanasilva@email.com"
+                    />
+          
           <Label>Senha</Label>
           <Input type="password" name="password" placeholder="*******" />
         </TextField>
-        <FilledButton>Entrar</FilledButton>
+        <FilledButton>Cadastrar</FilledButton>
         <EndingText>
           <h4>
-            Ainda não possui uma conta? <a href="/signIn">Cadastre-se</a>
+            Já tem cadastro? Faça o <a href="/login">Login</a>
           </h4>
         </EndingText>
       </RightLogin>
