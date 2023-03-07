@@ -28,4 +28,5 @@ export const TitlePages = styled.h1`
 
 export const DescriptionPages = styled.p`
   font-weight: 300;
+  font-size: 14px;
 `;

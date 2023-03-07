@@ -8,7 +8,10 @@ export default function SideManager(props) {
         Total de {props.type}: {props.amount}
       </p>
       <button>
-        <p>Novo {props.type.replace("s", "")}</p>
+        <p>
+          Nov{props.type === "produtos" ? "o" : "a"}{" "}
+          {props.type.replaceAll("s", "")}
+        </p>
         <AiOutlinePlus className="icon" />
       </button>
     </Container>

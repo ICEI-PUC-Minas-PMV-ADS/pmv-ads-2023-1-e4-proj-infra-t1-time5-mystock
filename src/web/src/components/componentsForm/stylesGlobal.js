@@ -12,9 +12,12 @@ export const Container = styled.div`
 `;
 
 export const ContainerText = styled.div`
+  max-width: 500px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: left;
+  text-align: left;
   h4 {
     font-weight: 300;
   }
@@ -27,7 +30,7 @@ export const Text = styled.h1`
 `;
 
 export const ContainerImg = styled.div`
-  max-width: 550px;
+  max-width: 500px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -104,7 +107,7 @@ export const Label = styled.label`
   font-size: 12px;
   font-weight: 400;
   margin-bottom: 5px;
-  margin-top: 23px;
+  margin-top: 10px;
 `;
 
 export const EndingText = styled.div`

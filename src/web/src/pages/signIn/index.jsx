@@ -35,25 +35,16 @@ export default function SignIn() {
           <Text>Cadastro</Text>
         </MainText>
         <TextField>
-            <Label>Primeiro Nome</Label>
-            <Input
-              type="text"
-              name="firstName"
-              placeholder="Ex: Luana"
-            />
-            <Label>Último Nome</Label>
-            <Input
-              type="text"
-              name="lastName"
-              placeholder="Ex: Silva"
-            />
+          <Label>Primeiro Nome</Label>
+          <Input type="text" name="firstName" placeholder="Ex: Luana" />
+          <Label>Último Nome</Label>
+          <Input type="text" name="lastName" placeholder="Ex: Silva" />
           <Label>E-mail</Label>
-                    <Input
-                      type="text"
-                      name="email"
-                      placeholder="Ex: luanasilva@email.com"
-                    />
-          
+          <Input
+            type="text"
+            name="email"
+            placeholder="Ex: luanasilva@email.com"
+          />
           <Label>Senha</Label>
           <Input type="password" name="password" placeholder="*******" />
         </TextField>
