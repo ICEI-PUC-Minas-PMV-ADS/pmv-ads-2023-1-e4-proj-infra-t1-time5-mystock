@@ -123,17 +123,15 @@ Como exposto na justificativa esse projeto visa entregar um sistema simples e pe
 
 Como proposta para facilitar e otimizar o controle de estoque de diversas empresas que não possuem esse serviço. Trazemos um sistema com versão mobile e web com possibilidade de criar e editar categoria e subcategorias de produtos, bem como cadastrar produtos de acordo com a demanda do usuário. De modo que o usuário tenha uma vizualização por produto dentro de cada subcategoria e de diversas subcategorias dentro de uma categoria. Gerando um controle de estoque de forma que o usuário consiga adicionar novos produtos, excluir produtos que não fazer mais parte do seu acervo e adicionar ou subtrair qunatidades de produtos específicos.
 
-### Processo 1 – NOME DO PROCESSO
+### Processo 1 – CADASTRO DE NOVO USUÁRIO
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+![CRIAR USER](https://user-images.githubusercontent.com/91069587/223528950-0e61fb49-3683-4e4b-a739-2e64fe37e6e1.jpg)
 
-![Processo 1](img/02-bpmn-proc1.png)
 
-### Processo 2 – NOME DO PROCESSO
+### Processo 2 – CRIAÇÃO CATEGORIA
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+![categorias](https://user-images.githubusercontent.com/91069587/223529030-5a0e1359-0c46-4928-974d-24d02a84d902.jpg)
 
-![Processo 2](img/02-bpmn-proc2.png)
 
 ## Indicadores de Desempenho
 
