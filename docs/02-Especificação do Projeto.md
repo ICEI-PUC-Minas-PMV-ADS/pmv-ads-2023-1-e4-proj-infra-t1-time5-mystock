@@ -137,12 +137,8 @@ Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em segu
 
 ## Indicadores de Desempenho
 
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
+![medidas](https://user-images.githubusercontent.com/91069587/223501487-bc328c67-d206-425d-a2df-02b80be1aed8.jpg)
 
-Usar o seguinte modelo: 
-
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
@@ -204,16 +200,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 # Matriz de Rastreabilidade
 
-A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio. 
-
-A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
-
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
+![MATRIZ](https://user-images.githubusercontent.com/91069587/223501306-d29e65c0-3184-42ca-bd23-5949453dc0dd.jpg)
 
 
 # Gerenciamento de Projeto
@@ -224,19 +211,22 @@ O gerenciamento do projeto bem como seu backlog serão realizados através dos b
 
 ## Gerenciamento de Tempo
 
-Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
+O gerenciamento de PBIs e task, bem como o andamento das sprint será gerenciado via Azure DevOps.
+Porém para gerar ua visualização organizacional mais simples foi proposta o desenvolvimento por pares, onde buscamos uma colaboração e entendimento linear do projeto e sua execução por todos envolvidos.
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+![atividades equipe](https://user-images.githubusercontent.com/91069587/223510767-b0a0c16c-0406-419b-abd4-51aed32aea23.jpg)
 
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
-
-![Gráfico de Gantt](img/02-grafico-gantt.png)
 
 ## Gerenciamento de Equipe
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
+O gerenciamento da equipe será realizado pelo AzureDevOps, onde todas as atividades de uma sprint serão dispostas e divididas entre os integrantes. A utilização da metodologia ágil permite uma auto-organização da equipe priorizando atividades, bem como criando atividades não esperadas e alterando a ordem de acordo com as necessidades observadas na reuiões semanais. A criação das sprint é de consenso geral da equipe bem como a organização de próximas sprints e debatida sempre colocada em pauta e livre para todos integrantes criarem novas tarefas.
 
-![Simple Project Timeline](img/02-project-timeline.png)
+Utilizando a visualização do board podemos ter uma visão de tudo que precisa ser entregua na sprint e utilizando o princípio do fluxo puxado temos uma grande colaboração e pro atividade na manutenção de tarefas que estejam sobrecarregando algum integrante.
+
+Exemplo da sprint 1 (ainda não está finalizado este board pela equipe ainda estar em período de adaptação).
+
+![gerenciamento](https://user-images.githubusercontent.com/91069587/223513729-f6ef37da-916e-469c-aeb1-8f4f7d17361c.jpg)
+
 
 ## Gestão de Orçamento
 
