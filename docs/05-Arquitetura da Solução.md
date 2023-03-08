@@ -1,10 +1,6 @@
 # Arquitetura da Solução
 
-<span style="color:red">Pré-requisitos: <a href="3-Projeto de Interface.md"> Projeto de Interface</a></span>
-
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
-
-![Arquitetura da Solução](img/02-mob-arch.png)
+![arquitetura](https://user-images.githubusercontent.com/91069587/223845852-1e8460c8-94e1-40aa-b8c3-29882825be5c.jpg)
 
 ## Diagrama de Classes
 
@@ -54,15 +50,19 @@ Explique como a hospedagem e o lançamento da plataforma foi feita.
 
 ## Qualidade de Software
 
-Conceituar qualidade de fato é uma tarefa complexa, mas ela pode ser vista como um método gerencial que através de procedimentos disseminados por toda a organização, busca garantir um produto final que satisfaça às expectativas dos stakeholders.
+O grupo optou por priorizar algumas sub-características para o projeto MyStock seguindo os fundamentos descriminados na norma técnica ISO/IEC 25010, seguem os itens para a avaliação da qualidade de software.
 
-No contexto de desenvolvimento de software, qualidade pode ser entendida como um conjunto de características a serem satisfeitas, de modo que o produto de software atenda às necessidades de seus usuários. Entretanto, tal nível de satisfação nem sempre é alcançado de forma espontânea, devendo ser continuamente construído. Assim, a qualidade do produto depende fortemente do seu respectivo processo de desenvolvimento.
+Adequação funcional: 
+-Será averiguado se o público-alvo para qual a aplicação móvel foi oferecida está satisfeito com o produto.
 
-A norma internacional ISO/IEC 25010, que é uma atualização da ISO/IEC 9126, define oito características e 30 subcaracterísticas de qualidade para produtos de software.
-Com base nessas características e nas respectivas sub-características, identifique as sub-características que sua equipe utilizará como base para nortear o desenvolvimento do projeto de software considerando-se alguns aspectos simples de qualidade. Justifique as subcaracterísticas escolhidas pelo time e elenque as métricas que permitirão a equipe avaliar os objetos de interesse.
+Confiabilidade:
+-Será analisado se a aplicação apresenta algum tipo de falha durante sua execução. Ou ainda se ocorre algum comportamento inesperado durante seu funcionamento após alguma modificação.
 
-> **Links Úteis**:
->
-> - [ISO/IEC 25010:2011 - Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models](https://www.iso.org/standard/35733.html/)
-> - [Análise sobre a ISO 9126 – NBR 13596](https://www.tiespecialistas.com.br/analise-sobre-iso-9126-nbr-13596/)
-> - [Qualidade de Software - Engenharia de Software 29](https://www.devmedia.com.br/qualidade-de-software-engenharia-de-software-29/18209/)
+Usabilidade:
+-A praticidade do uso do aplicativo é um dos pilares para uma experiência prazerosa para o usuário. O projeto está sendo desenvolvido de forma que as atividades no uso da aplicação sejam realizadas com a menor quantidade de cliques.
+
+Eficiência:
+-Serão realizados testes para avaliar a performance do software e os mecanismos utilizados. O software apresentará funcionalidades que são auto explicativas.
+
+Manutenabilidade:
+-Serão realizados testes relacionados à lentidão durante o uso. Se tratando da reusabilidade da aplicação serão reduzidos custos e tempo no processo de desenvolvimento de modo a aumentar a qualidade, entre outras diversas vantagens.
