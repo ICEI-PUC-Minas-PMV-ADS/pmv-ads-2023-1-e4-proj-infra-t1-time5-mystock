@@ -33,6 +33,7 @@ export default function CategoryManagement() {
               createdAt={category.createdAt}
               id={category.id}
               m3
+              type="categoria"
             />
           );
         })}

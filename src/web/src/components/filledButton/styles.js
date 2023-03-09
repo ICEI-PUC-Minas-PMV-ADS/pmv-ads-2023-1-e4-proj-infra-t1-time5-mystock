@@ -5,7 +5,7 @@ export const StyledFilledButton = styled.button`
   margin-top: 23px;
   padding: 16px 0px;
   border-radius: 5px;
-  background-color: #0090cd;
+  background-color: ${(props) => (props.delete ? "#EC6D11" : "#0090cd")};
   border: none;
   outline: none;
   color: #ffffff;

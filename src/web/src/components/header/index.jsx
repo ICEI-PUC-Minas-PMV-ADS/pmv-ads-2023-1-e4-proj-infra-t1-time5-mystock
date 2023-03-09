@@ -29,6 +29,9 @@ export default function Header() {
           <li>
             <a onClick={() => navigate("/categorys")}>Categorias</a>
           </li>
+          <li>
+            <a onClick={() => navigate("/subcategorys")}>Subcategorias</a>
+          </li>
           <li className="user-data">
             <a onClick={() => navigate("/")}>Meus dados</a>
           </li>

@@ -55,6 +55,7 @@ export default function EditSubcategorys() {
           name={"Celulares"}
           updatedAt={"03/03/2023"}
           createdAt={"03/03/2023"}
+          type="subcategoria"
         />
       </ContainerCards>
     </Container>

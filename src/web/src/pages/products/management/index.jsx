@@ -102,6 +102,7 @@ export default function ProductManagement() {
                     updatedAt={product.updatedAt}
                     createdAt={product.createdAt}
                     id={product.id}
+                    type="produto"
                   />
                 )}
               </>
