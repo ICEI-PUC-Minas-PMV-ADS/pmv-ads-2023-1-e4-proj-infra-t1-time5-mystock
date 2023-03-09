@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ProductManagement from "./pages/products/management";
 import BaseApplication from "./pages/baseApplication";
 import CategoryManagement from "./pages/categorys/management";
@@ -14,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/" element={<BaseApplication />}>
           <Route path="products" element={<ProductManagement />}></Route>
           <Route path="categorys" element={<CategoryManagement />} />
@@ -30,7 +30,7 @@ function App() {
             element={<EditSubcategorys />}
           ></Route>
         </Route>
-
+        <Route path="login" element={<Login />} />
         <Route path="register" element={<SignIn />} />
       </Routes>
     </BrowserRouter>

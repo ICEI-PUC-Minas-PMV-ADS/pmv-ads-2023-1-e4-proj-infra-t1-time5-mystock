@@ -48,7 +48,7 @@ export default function Login() {
         <FilledButton>Entrar</FilledButton>
         <EndingText>
           <h4>
-            Ainda não possui uma conta? <a href="/signIn">Cadastre-se</a>
+            Ainda não possui uma conta? <a href="/register">Cadastre-se</a>
           </h4>
         </EndingText>
       </RightLogin>
