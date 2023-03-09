@@ -11,6 +11,7 @@ import FilledButton from "../../../components/filledButton";
 import {
   Container,
   DescriptionPages,
+  InputsContent,
   TitlePages,
 } from "../../../styleGlobal/styles";
 
@@ -33,11 +34,13 @@ export default function EditCategorys() {
           Ao lado é exibido as informações da categoria. As alterações irão
           atualizar as informações.
         </DescriptionPages>
-        <ContainerText>
-          <Label>Nome</Label>
-          <Input type="text" name="name" />
-        </ContainerText>
-        <FilledButton>Editar</FilledButton>
+        <InputsContent>
+          <ContainerText>
+            <Label>Nome</Label>
+            <Input type="text" name="name" />
+          </ContainerText>
+          <FilledButton>Editar</FilledButton>
+        </InputsContent>
       </ContainerForm>
       <ContainerCards>
         <Card

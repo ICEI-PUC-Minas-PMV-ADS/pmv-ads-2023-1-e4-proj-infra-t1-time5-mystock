@@ -14,6 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Login />} />
         <Route path="/" element={<BaseApplication />}>
           <Route path="products" element={<ProductManagement />}></Route>
           <Route path="categorys" element={<CategoryManagement />} />
@@ -29,7 +30,7 @@ function App() {
             element={<EditSubcategorys />}
           ></Route>
         </Route>
-        <Route path="login" element={<Login />} />
+
         <Route path="register" element={<SignIn />} />
       </Routes>
     </BrowserRouter>

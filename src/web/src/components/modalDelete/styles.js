@@ -27,10 +27,4 @@ export const CardDelete = styled.div`
   padding: 20px;
 `;
 
-export const InputsContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-`;
+

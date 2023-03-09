@@ -1,6 +1,10 @@
-import { DescriptionPages, TitlePages } from "../../styleGlobal/styles";
+import {
+  DescriptionPages,
+  TitlePages,
+  InputsContent,
+} from "../../styleGlobal/styles";
 import FilledButton from "../filledButton";
-import { Overlay, CardDelete, InputsContent } from "./styles";
+import { Overlay, CardDelete } from "./styles";
 
 export default function ModalDelete(props) {
   return (

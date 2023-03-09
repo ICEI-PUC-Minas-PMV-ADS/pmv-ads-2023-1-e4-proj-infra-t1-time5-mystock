@@ -12,6 +12,7 @@ import SelectPersonality from "../../../components/select";
 import {
   Container,
   DescriptionPages,
+  InputsContent,
   TitlePages,
 } from "../../../styleGlobal/styles";
 
@@ -39,19 +40,21 @@ export default function RegisterCategorys() {
           Ao lado é exibido as subcategorias relacionadas a categoria. As
           alterações irão atualizar as informações.
         </DescriptionPages>
-        <ContainerText>
-          <Label>Nome</Label>
-          <Input type="text" name="name" />
-        </ContainerText>
-        <ContainerText>
-          <Label>Categoria</Label>
-          <SelectPersonality
-            value={categorys[actualCategory].name}
-            itensList={categorys}
-            setActualCategory={setActualCategory}
-          />
-        </ContainerText>
-        <FilledButton>Editar</FilledButton>
+        <InputsContent>
+          <ContainerText>
+            <Label>Nome</Label>
+            <Input type="text" name="name" />
+          </ContainerText>
+          <ContainerText>
+            <Label>Categoria</Label>
+            <SelectPersonality
+              value={categorys[actualCategory].name}
+              itensList={categorys}
+              setActualCategory={setActualCategory}
+            />
+          </ContainerText>
+          <FilledButton>Editar</FilledButton>
+        </InputsContent>
       </ContainerForm>
       <ContainerCards>
         {subCategorys.map((subCategory, index) => {
