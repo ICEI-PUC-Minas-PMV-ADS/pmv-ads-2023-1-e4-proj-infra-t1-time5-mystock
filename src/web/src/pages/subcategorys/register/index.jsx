@@ -16,7 +16,7 @@ import {
   TitlePages,
 } from "../../../styleGlobal/styles";
 
-export default function RegisterCategorys() {
+export default function RegisterSubCategorys() {
   const [actualCategory, setActualCategory] = useState(0);
   const categorys = [
     { name: "Eletrônicos", id: 0 },
