@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rapha\\OneDrive\\Documentos\\exerciciosc#\\MyStock\\MyStock\\MyStock.csproj": {}
+    "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server\\MyStock\\MyStock.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rapha\\OneDrive\\Documentos\\exerciciosc#\\MyStock\\MyStock\\MyStock.csproj": {
+    "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server\\MyStock\\MyStock.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rapha\\OneDrive\\Documentos\\exerciciosc#\\MyStock\\MyStock\\MyStock.csproj",
+        "projectUniqueName": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server\\MyStock\\MyStock.csproj",
         "projectName": "MyStock",
-        "projectPath": "C:\\Users\\rapha\\OneDrive\\Documentos\\exerciciosc#\\MyStock\\MyStock\\MyStock.csproj",
-        "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rapha\\OneDrive\\Documentos\\exerciciosc#\\MyStock\\MyStock\\obj\\",
+        "projectPath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server\\MyStock\\MyStock.csproj",
+        "packagesPath": "C:\\Users\\Notebook Acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server\\MyStock\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Notebook Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -48,6 +42,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.1, )"
@@ -57,8 +55,6 @@
               "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
             },
@@ -67,8 +63,6 @@
               "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.3, )"
             },
@@ -88,6 +82,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.13, 6.0.13]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -96,7 +108,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

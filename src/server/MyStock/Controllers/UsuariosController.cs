@@ -32,7 +32,7 @@ namespace MyStock.Controllers
         [HttpPost]
         public async Task<ActionResult> Criar(Usuario model)
         {
-            model.Senha= BCrypt.Net.BCrypt.HashPassword(model.Senha);
+            model.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
 
             _context.usuarios.Add(model);
             await _context.SaveChangesAsync();
@@ -90,7 +90,7 @@ namespace MyStock.Controllers
 
             var jwt = GerarJwtToken(dbusuario);
 
-            return Ok(new {jwtToken= jwt});
+            return Ok(new { jwtToken = jwt });
         }
 
         private object GerarJwtToken(Usuario model)

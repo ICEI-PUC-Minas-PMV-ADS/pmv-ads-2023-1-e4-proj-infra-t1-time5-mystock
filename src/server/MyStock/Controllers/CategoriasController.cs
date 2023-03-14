@@ -6,7 +6,7 @@ using MyStock.Models;
 
 namespace MyStock.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CategoriasController : ControllerBase
@@ -15,7 +15,7 @@ namespace MyStock.Controllers
 
         public CategoriasController(AppDbContext context)
         {
-            _context = context; 
+            _context = context;
         }
 
         [HttpGet]
