@@ -10,16 +10,69 @@ import FilledButton from "../../../components/filledButton";
 import {
   Container,
   DescriptionPages,
+  Form,
   InputsContent,
   TitlePages,
 } from "../../../styleGlobal/styles";
-
+import { useFormik } from "formik";
+import { useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { getCategorys, createCategory } from "../../../services/api/categorys";
+import MessageError from "../../../components/messageError";
+import Spinner from "../../../components/spinner";
 
 export default function RegisterCategory() {
-  const teste = [
-    {name: "Eletrônicos"},
-    ];
+  const [loading, setLoading] = useState(false);
+  const [messageError, setMessageError] = useState({
+    type: "",
+    message: "",
+    open: false,
+  });
+  const { data, isLoading } = useQuery("categorys", getCategorys, {
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
+  });
 
+  const client = useQueryClient();
+
+  const mutation = useMutation(createCategory, {
+    onSuccess: () => {
+      setLoading(false);
+      client.invalidateQueries("categorys");
+      setMessageError({
+        type: "success",
+        message: "Categoria cadastrada com sucesso",
+        open: true,
+      });
+      setTimeout(() => {
+        setMessageError({
+          type: "",
+          message: "",
+          open: false,
+        });
+      }, 3000);
+    },
+    onError: (e) => {
+      setTimeout(() => {
+        setMessageError({
+          type: "error",
+          message: "Erro ao cadastrar categoria",
+          open: true,
+        });
+      }, 4000);
+    },
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      nome: "",
+    },
+
+    onSubmit: (values) => {
+      setLoading(true);
+      mutation.mutate(values);
+    },
+  });
 
   return (
     <Container>
@@ -28,23 +81,38 @@ export default function RegisterCategory() {
           <span>Cadastrar</span> categorias
         </TitlePages>
         <DescriptionPages>
-        Ao lado é exibido as categorias existentes. O categoria será adicionado a lista de categorias existentes.
+          Ao lado é exibido as categorias existentes. O categoria será
+          adicionado a lista de categorias existentes.
         </DescriptionPages>
         <InputsContent>
-          <ContainerText>
-            <Label>Nome</Label>
-            <Input type="text" name="name" />
-          </ContainerText>
-          <FilledButton>Cadastrar</FilledButton>
+          <Form onSubmit={formik.handleSubmit}>
+            <ContainerText>
+              <Label>Nome</Label>
+              <Input type="text" name="nome" onChange={formik.handleChange} />
+            </ContainerText>
+            <FilledButton type="submit" loading={loading}>
+              Cadastrar
+            </FilledButton>
+            {messageError && (
+              <MessageError
+                type={messageError.type}
+                message={messageError.message}
+                display={messageError.open}
+              />
+            )}
+          </Form>
         </InputsContent>
       </ContainerForm>
-      <ContainerCards>
-
-      {teste.map((item, index)=>{
-      return <Card key={index} name={item.name} register />
-      })}
-
-      </ContainerCards>
+      {isLoading ? (
+        <Spinner size="30px" />
+      ) : (
+        <ContainerCards>
+          {data &&
+            data.map((item, index) => {
+              return <Card m3 key={index} name={item.nome} register />;
+            })}
+        </ContainerCards>
+      )}
     </Container>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState, createContext, useContext, useEffect } from "react";
 import http from "../services/http";
-import { useQueryClient } from "react-query";
 
 const authContext = createContext();
 

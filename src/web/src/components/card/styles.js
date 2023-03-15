@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardStyle = styled.div`
   display: flex;
   max-width: ${(props) => {
-    if (props.m3) return "30%";
+    if (props.m3) return "32%";
     else if (props.max) return "100%";
     else return "49%";
   }};
@@ -14,6 +14,7 @@ export const CardStyle = styled.div`
   padding: 20px;
   border: 1px solid #fff3;
   border-radius: 5px;
+  margin: 0;
 
   h2 {
     font-weight: 500;
