@@ -11,7 +11,7 @@ using System.Text;
 
 namespace MyStock.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsuariosController : ControllerBase
@@ -83,7 +83,7 @@ namespace MyStock.Controllers
         [HttpPost("{Autenticacao}")]
         public async Task<ActionResult> Autenticacao(AutenticacaoDto model)
         {
-            var dbusuario = await _context.usuarios.FindAsync(model.Id);
+            var dbusuario = await _context.usuarios.FirstOrDefaultAsync( c => c.Email == model.Email);
 
             if (dbusuario == null || !BCrypt.Net.BCrypt.Verify(model.Senha, dbusuario.Senha))
                 return Unauthorized();
