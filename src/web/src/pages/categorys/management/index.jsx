@@ -7,9 +7,10 @@ import { getCategorys } from "../../../services/api/categorys";
 
 export default function CategoryManagement() {
   const { data } = useQuery("categorysManagmente", getCategorys);
+
   return (
     <Container>
-      <SideManager type="categorias" amount="23" />
+      <SideManager type="categorias" amount={data && data.length} />
       <AlignText>
         <TitlePages marginTop="40px">
           Gerenciar <span>Categorias</span>
@@ -19,7 +20,7 @@ export default function CategoryManagement() {
         </DescriptionPages>
       </AlignText>
       <CardsWrapper>
-        {data &&
+        {data && data.length > 0 ? (
           data.map((category, index) => {
             return (
               <Card
@@ -32,7 +33,10 @@ export default function CategoryManagement() {
                 type="categoria"
               />
             );
-          })}
+          })
+        ) : (
+          <p>Não há categorias para serem gerenciadas</p>
+        )}
       </CardsWrapper>
     </Container>
   );

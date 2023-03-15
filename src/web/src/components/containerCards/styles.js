@@ -10,7 +10,8 @@ export const ContainerCardStyle = styled.div`
   height: 100%;
   gap: 15px;
   position: relative;
-  justify-content: space-between;
+  justify-content: fle;
+
   overflow-y: auto;
 
   @media (max-width: 700px) {
