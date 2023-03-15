@@ -10,13 +10,14 @@ namespace MyStock.Models
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
+        [Required]
         public int CategoriaId { get; set; }
 
-        public Categoria Categoria { get; set; }
+        public Categoria? Categoria { get; set; }
 
-        public ICollection<Produto> Produto { get; set; }
+        public ICollection<Produto>? Produto { get; set; }
 
-        
+
 
     }
 }

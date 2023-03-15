@@ -12,7 +12,7 @@ namespace MyStock.Models
         public string Nome { get; set; }
         [Required]
         public int Quantidade { get; set; }
-        
+
         public SubCategoria? SubCategoria { get; set; }
 
     }

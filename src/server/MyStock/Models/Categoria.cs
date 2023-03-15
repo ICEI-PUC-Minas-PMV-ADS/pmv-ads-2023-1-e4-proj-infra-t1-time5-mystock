@@ -10,8 +10,7 @@ namespace MyStock.Models
         public int Id { get; set; }
         [Required]
         public string Nome { get; set; }
-
-        public ICollection<SubCategoria> SubCategorias { get; set; }
+        public ICollection<SubCategoria>? SubCategorias { get; set; }
 
     }
 }
