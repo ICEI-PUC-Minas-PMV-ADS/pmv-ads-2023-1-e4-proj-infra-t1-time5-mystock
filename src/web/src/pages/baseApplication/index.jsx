@@ -4,9 +4,9 @@ import useAuth from "../../context/auth";
 import { MainApplication } from "./styles";
 
 export default function BaseApplication() {
-  const { user } = useAuth();
+  const { user, token } = useAuth();
 
-  if (user || localStorage.getItem("token")) {
+  if (user || token) {
     return (
       <MainApplication>
         <Header />

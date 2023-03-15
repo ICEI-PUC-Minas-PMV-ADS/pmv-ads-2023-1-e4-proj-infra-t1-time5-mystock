@@ -8,14 +8,11 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState();
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-  const client = useQueryClient();
-
   useEffect(() => {
     if (token) {
       http.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-      client.invalidateQueries(["me"]);
     }
-  }, [token, client]);
+  }, [token]);
 
   async function login(reqData) {
     const { data } = await http.post("api/Usuarios/Autenticacao", reqData);
@@ -44,6 +41,7 @@ export function AuthProvider({ children }) {
         login,
         signUp,
         logout,
+        token,
       }}
     >
       {children}
