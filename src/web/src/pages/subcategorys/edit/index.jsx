@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useParams } from "react-router";
 import Card from "../../../components/card";
 import {
   ContainerText,
@@ -18,7 +17,6 @@ import {
 } from "../../../styleGlobal/styles";
 
 export default function EditSubcategorys() {
-  const { id } = useParams();
   const [actualCategory, setActualCategory] = useState(0);
   const categorys = [
     { name: "Eletrônicos", id: 0 },

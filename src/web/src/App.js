@@ -1,16 +1,16 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import ProductManagement from './pages/products/management'
-import BaseApplication from './pages/baseApplication'
-import CategoryManagement from './pages/categorys/management'
-import Login from './pages/login'
-import SignIn from './pages/signIn'
-import EditProducts from './pages/products/edit'
-import EditCategorys from './pages/categorys/edit'
-import SubcategorysManagement from './pages/subcategorys/management'
-import RegisterProduct from './pages/products/register'
-import RegisterCategorys from './pages/categorys/register'
-import RegisterSubCategorys from './pages/subcategorys/register'
-import EditSubcategorys from './pages/subcategorys/edit'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import ProductManagement from "./pages/products/management";
+import BaseApplication from "./pages/baseApplication";
+import CategoryManagement from "./pages/categorys/management";
+import Login from "./pages/login";
+import SignIn from "./pages/signIn";
+import EditProducts from "./pages/products/edit";
+import EditCategorys from "./pages/categorys/edit";
+import SubcategorysManagement from "./pages/subcategorys/management";
+import RegisterProduct from "./pages/products/register";
+import RegisterCategorys from "./pages/categorys/register";
+import RegisterSubCategorys from "./pages/subcategorys/register";
+import EditSubcategorys from "./pages/subcategorys/edit";
 
 function App() {
   return (
@@ -41,7 +41,7 @@ function App() {
         <Route path="register" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;

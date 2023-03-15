@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import {
   Container,
@@ -20,7 +20,7 @@ import { Form } from "../../styleGlobal/styles";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, user } = useAuth();
 
   const navigate = useNavigate();
 
@@ -73,8 +73,8 @@ export default function Login() {
           <TextField>
             <Label>Email</Label>
             <Input
-              type="text"
-              name="id"
+              type="email"
+              name="email"
               placeholder="email"
               onChange={formik.handleChange}
             />

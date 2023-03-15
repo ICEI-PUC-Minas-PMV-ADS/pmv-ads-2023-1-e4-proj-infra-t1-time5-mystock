@@ -8,11 +8,15 @@ import { CardsWrapper, ContentCards, ButtonBack } from "./styles";
 import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
 import { BsArrowLeft } from "react-icons/bs";
 import Selector from "../../../components/selector";
+import useAuth from "../../../context/auth";
 
 export default function ProductManagement() {
   const [actualCatgory, setActualCategory] = useState(0);
   const [actualSubCatgory, setActualSubCategory] = useState(0);
   const [showProducts, setShowProducts] = useState(false);
+  const { user } = useAuth();
+
+  console.log(user);
 
   const categorys = [
     { name: "Eletrônicos", id: 0 },
