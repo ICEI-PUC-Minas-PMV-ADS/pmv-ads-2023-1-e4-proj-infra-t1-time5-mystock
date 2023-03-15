@@ -28,7 +28,7 @@ export default function RegisterCategory() {
     message: "",
     open: false,
   });
-  const { data, isLoading } = useQuery("categorys", getCategorys, {
+  const { data, isLoading } = useQuery("categorysRegister", getCategorys, {
     refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
@@ -38,7 +38,7 @@ export default function RegisterCategory() {
   const mutation = useMutation(createCategory, {
     onSuccess: () => {
       setLoading(false);
-      client.invalidateQueries("categorys");
+      client.invalidateQueries("categorysRegister");
       setMessageError({
         type: "success",
         message: "Categoria cadastrada com sucesso",

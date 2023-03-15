@@ -2,16 +2,11 @@ import Card from "../../../components/card";
 import SideManager from "../../../components/sideManager";
 import { DescriptionPages, TitlePages } from "../../../styleGlobal/styles";
 import { Container, AlignText, CardsWrapper } from "./styles";
+import { useQuery } from "react-query";
+import { getCategorys } from "../../../services/api/categorys";
 
 export default function CategoryManagement() {
-  const categorys = [
-    { name: "Eletrônicos", id: 0 },
-    { name: "Roupas", id: 1 },
-    { name: "Brinquedos", id: 2 },
-    { name: "Comidas", id: 3 },
-    { name: "Móveis", id: 4 },
-    { name: "Enxovais", id: 5 },
-  ];
+  const { data } = useQuery("categorysManagmente", getCategorys);
   return (
     <Container>
       <SideManager type="categorias" amount="23" />
@@ -24,19 +19,20 @@ export default function CategoryManagement() {
         </DescriptionPages>
       </AlignText>
       <CardsWrapper>
-        {categorys.map((category, index) => {
-          return (
-            <Card
-              key={index}
-              name={category.name}
-              updatedAt={category.updatedAt}
-              createdAt={category.createdAt}
-              id={category.id}
-              m3
-              type="categoria"
-            />
-          );
-        })}
+        {data &&
+          data.map((category, index) => {
+            return (
+              <Card
+                key={index}
+                name={category.nome}
+                updatedAt={null}
+                createdAt={null}
+                id={category.id}
+                m3
+                type="categoria"
+              />
+            );
+          })}
       </CardsWrapper>
     </Container>
   );
