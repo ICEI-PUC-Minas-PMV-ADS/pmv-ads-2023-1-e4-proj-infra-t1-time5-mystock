@@ -15,12 +15,18 @@ import {
   Label,
 } from "../../components/componentsForm/stylesGlobal";
 import FilledButton from "../../components/filledButton";
+import MessageError from "../../components/messageError";
 import useAuth from "../../context/auth";
 import { Form } from "../../styleGlobal/styles";
 
 export default function SignIn() {
   const [loading, setLoading] = useState(false);
   const { signUp } = useAuth();
+  const [messageError, setMessageError] = useState({
+    type: "",
+    message: "",
+    open: false,
+  });
 
   const navigate = useNavigate();
 
@@ -45,7 +51,19 @@ export default function SignIn() {
           navigate("/login");
         },
         (e) => {
-          console.log(e);
+          setLoading(false);
+          setMessageError({
+            type: "error",
+            message: "Email ou Senha inválidos. Por favor, tente novamente",
+            open: true,
+          });
+          setTimeout(() => {
+            setMessageError({
+              type: "",
+              message: "",
+              open: false,
+            });
+          }, 3000);
         }
       );
     },
@@ -105,6 +123,13 @@ export default function SignIn() {
           <FilledButton loading={loading} type="submit">
             Cadastrar
           </FilledButton>
+          {messageError && (
+            <MessageError
+              type={messageError.type}
+              message={messageError.message}
+              display={messageError.open}
+            />
+          )}
         </Form>
         <EndingText>
           <h4>

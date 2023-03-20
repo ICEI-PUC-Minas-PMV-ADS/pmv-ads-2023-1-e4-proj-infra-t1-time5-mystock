@@ -8,7 +8,7 @@ export const MessageContainer = styled.div`
 
   p {
     color: ${(props) => {
-      if (props.type === "error") return "#63997a";
+      if (props.type === "error") return "#ff5252";
       else if (props.type === "success") return "#b9de51";
       else return "#ccc";
     }};

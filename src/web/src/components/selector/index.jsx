@@ -22,7 +22,7 @@ export default function Selector(props) {
           });
         }}
       >
-        <h2>{props.category.name}</h2>
+        <h2>{props.category && props.category.nome}</h2>
         {!props.subCategorys && <MdKeyboardArrowRight className="icon" />}
         {props.subCategorys && (
           <>
@@ -52,7 +52,7 @@ export default function Selector(props) {
                       props.setShowProducts(true);
                     }}
                   >
-                    {item.name}
+                    {item.nome}
                   </h3>
                 )}
               </>
