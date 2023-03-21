@@ -1,8 +1,8 @@
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
 import SideManager from "../../../components/sideManager";
-import { Container } from "../../../styleGlobal/styles";
+import { CenterSpinner, Container } from "../../../styleGlobal/styles";
 import { CardsWrapper, ContentCards, ButtonBack } from "./styles";
 import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
 import { BsArrowLeft } from "react-icons/bs";
@@ -11,31 +11,25 @@ import Card from "../../../components/card";
 import { useQuery } from "react-query";
 import { getCategorys } from "../../../services/api/categorys";
 import { getSubCategorys } from "../../../services/api/subcategorys";
-import { useFormik } from "formik";
+import Spinner from "../../../components/spinner";
 
 export default function SubcategorysManagement() {
+  const categorys = useQuery("categorys", getCategorys);
+  const subCategorys = useQuery("subcategorys", getSubCategorys);
+  const [actualCategory, setActualCategory] = useState();
+  const [filterAmount, setFilterAmount] = useState();
   const [showProducts, setShowProducts] = useState(false);
 
-  const categorys = useQuery("categorys", getCategorys);
-  const subCategorys = useQuery("subcategorys", getSubCategorys, {
-    onSuccess: (data) => {
-      formik.setFieldValue("id", data[0].categoriaId);
-    },
-  });
+  useEffect(() => {
+    setActualCategory(categorys.data && categorys.data[0].id);
+  }, [categorys.data]);
 
-  const formik = useFormik({
-    initialValues: {
-      id: "",
-    },
-  });
-
-  const amountSubcategorys = useMemo(() => {
-    const filterAmount =
+  useEffect(() => {
+    setFilterAmount(
       subCategorys.data &&
-      subCategorys.data.filter((x) => x.categoriaId === formik.values.id);
-
-    return filterAmount;
-  }, []);
+        subCategorys.data.filter((x) => x.categoriaId === actualCategory)
+    );
+  }, [subCategorys.data, actualCategory]);
 
   return (
     <Container>
@@ -55,7 +49,8 @@ export default function SubcategorysManagement() {
                     key={index}
                     category={category}
                     setShowProducts={setShowProducts}
-                    formik={formik}
+                    setActualCategory={setActualCategory}
+                    id={category.id}
                   />
                 );
               })}
@@ -67,25 +62,33 @@ export default function SubcategorysManagement() {
             </ButtonBack>
             <SideManager
               type="Subcategorias"
-              amount={amountSubcategorys && amountSubcategorys.length}
+              amount={filterAmount && filterAmount.length}
             />
             <CardsWrapper>
-              {subCategorys.data.map((subCategory, index) => {
-                if (subCategory.categoriaId === formik.values.id) {
+              {filterAmount && filterAmount.length > 0 ? (
+                subCategorys.data.map((subCategory, index) => {
                   return (
-                    <Card
-                      key={index}
-                      name={subCategory.nome}
-                      id={subCategory.id}
-                    />
+                    <>
+                      {subCategory.categoriaId === actualCategory && (
+                        <Card
+                          key={index}
+                          name={subCategory.nome}
+                          id={subCategory.id}
+                        />
+                      )}
+                    </>
                   );
-                }
-              })}
+                })
+              ) : (
+                <p>Não há subcategorias a serem gerenciadas</p>
+              )}
             </CardsWrapper>
           </ContainerCards>
         </>
       ) : (
-        "Carregando"
+        <CenterSpinner>
+          <Spinner size="30px" />
+        </CenterSpinner>
       )}
     </Container>
   );

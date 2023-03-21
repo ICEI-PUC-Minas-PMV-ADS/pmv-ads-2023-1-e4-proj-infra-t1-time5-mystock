@@ -15,6 +15,7 @@ export default function Selector(props) {
     <CardSubcategorys>
       <TitleCategoryCard
         onClick={() => {
+          props.setActualCategory(props.id);
           props.formik.setFieldValue("id", props.category.id);
           setOpenSubcategorys({
             open: !openSubcategorys.open,

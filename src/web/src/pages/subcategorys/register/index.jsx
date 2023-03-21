@@ -49,7 +49,7 @@ export default function RegisterSubCategorys() {
   const mutation = useMutation(createSubcategory, {
     onSuccess: () => {
       setLoading(false);
-      client.invalidateQueries("subcategorysRegister");
+      client.invalidateQueries("subcategorys");
       setMessageError({
         type: "success",
         message: "Subategoria cadastrada com sucesso",
