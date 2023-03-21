@@ -130,7 +130,7 @@ export default function RegisterSubCategorys() {
                   />
                 </ContainerText>
                 <FilledButton type="submit" loading={loading}>
-                  Editar
+                  Cadastrar
                 </FilledButton>
                 {messageError && (
                   <MessageError

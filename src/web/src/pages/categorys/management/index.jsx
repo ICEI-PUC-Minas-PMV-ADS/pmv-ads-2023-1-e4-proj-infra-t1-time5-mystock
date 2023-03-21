@@ -3,7 +3,7 @@ import SideManager from "../../../components/sideManager";
 import { DescriptionPages, TitlePages } from "../../../styleGlobal/styles";
 import { Container, AlignText, CardsWrapper } from "./styles";
 import { useQuery } from "react-query";
-import { getCategorys } from "../../../services/api/categorys";
+import { deleteCategory, getCategorys } from "../../../services/api/categorys";
 
 export default function CategoryManagement() {
   const { data } = useQuery("categorysManagmente", getCategorys);
@@ -31,6 +31,8 @@ export default function CategoryManagement() {
                 id={category.id}
                 m3
                 type="categoria"
+                api={deleteCategory}
+                invalidateQuery={"categorysManagmente"}
               />
             );
           })

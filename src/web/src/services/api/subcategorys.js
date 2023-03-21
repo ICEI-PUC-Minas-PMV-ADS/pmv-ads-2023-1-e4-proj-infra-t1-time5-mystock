@@ -20,3 +20,8 @@ export async function getSubcategoryById(query) {
   const { data } = await http.get(`api/SubCategorias/${id}`);
   return data;
 }
+
+export async function deleteSubcategory(reqData) {
+  const { data } = await http.delete(`api/SubCategorias/${reqData.id}`);
+  return data;
+}

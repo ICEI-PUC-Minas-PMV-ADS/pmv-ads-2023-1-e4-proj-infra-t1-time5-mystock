@@ -10,7 +10,10 @@ import Selector from "../../../components/selector";
 import Card from "../../../components/card";
 import { useQuery } from "react-query";
 import { getCategorys } from "../../../services/api/categorys";
-import { getSubCategorys } from "../../../services/api/subcategorys";
+import {
+  deleteSubcategory,
+  getSubCategorys,
+} from "../../../services/api/subcategorys";
 import Spinner from "../../../components/spinner";
 
 export default function SubcategorysManagement() {
@@ -74,6 +77,9 @@ export default function SubcategorysManagement() {
                           key={index}
                           name={subCategory.nome}
                           id={subCategory.id}
+                          api={deleteSubcategory}
+                          type="subcategoria"
+                          invalidateQuery={"subcategorys"}
                         />
                       )}
                     </>
