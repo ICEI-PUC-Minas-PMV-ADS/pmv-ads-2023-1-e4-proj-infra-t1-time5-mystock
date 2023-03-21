@@ -1,4 +1,7 @@
+import { useFormik } from "formik";
 import { useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { useParams } from "react-router";
 import Card from "../../../components/card";
 import {
   ContainerText,
@@ -10,6 +13,10 @@ import ContainerForm from "../../../components/containerForms";
 import FilledButton from "../../../components/filledButton";
 import SelectPersonality from "../../../components/select";
 import {
+  editSubcategory,
+  getSubcategoryById,
+} from "../../../services/api/subcategorys";
+import {
   Container,
   DescriptionPages,
   InputsContent,
@@ -17,12 +24,66 @@ import {
 } from "../../../styleGlobal/styles";
 
 export default function EditSubcategorys() {
-  const [actualCategory, setActualCategory] = useState(0);
-  const categorys = [
-    { name: "Eletrônicos", id: 0 },
-    { name: "Roupas", id: 1 },
-    { name: "Sapatos", id: 2 },
-  ];
+  const [loading, setLoading] = useState(false);
+  const [messageError, setMessageError] = useState({
+    type: "",
+    message: "",
+    open: false,
+  });
+  const { id } = useParams();
+  const { data, isLoading } = useQuery(
+    ["categorysEdit", id],
+    getSubcategoryById,
+    {
+      onSuccess: (data) => {
+        for (let key in data) {
+          formik.setFieldValue(key, data[key]);
+        }
+      },
+    }
+  );
+
+  const client = useQueryClient();
+
+  const mutation = useMutation(editSubcategory, {
+    onSuccess: () => {
+      setLoading(false);
+      client.invalidateQueries("categorysRegister");
+      setMessageError({
+        type: "success",
+        message: "Categoria editada com sucesso",
+        open: true,
+      });
+      setTimeout(() => {
+        setMessageError({
+          type: "",
+          message: "",
+          open: false,
+        });
+      }, 3000);
+    },
+    onError: (e) => {
+      setTimeout(() => {
+        setMessageError({
+          type: "error",
+          message: "Erro ao editar categoria",
+          open: true,
+        });
+      }, 4000);
+    },
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      id: "",
+      nome: "",
+    },
+
+    onSubmit: (values) => {
+      setLoading(true);
+      mutation.mutate(values);
+    },
+  });
 
   return (
     <Container>
@@ -42,9 +103,9 @@ export default function EditSubcategorys() {
           <ContainerText>
             <Label>Categoria</Label>
             <SelectPersonality
-              value={categorys[actualCategory].name}
+            /* value={categorys[actualCategory].name}
               itensList={categorys}
-              setActualCategory={setActualCategory}
+              setActualCategory={setActualCategory} */
             />
           </ContainerText>
           <FilledButton>Editar</FilledButton>
