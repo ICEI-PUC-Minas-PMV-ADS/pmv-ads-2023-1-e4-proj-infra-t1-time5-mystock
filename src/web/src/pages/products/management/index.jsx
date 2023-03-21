@@ -14,7 +14,7 @@ import { getProducts } from "../../../services/api/products";
 import Spinner from "../../../components/spinner";
 
 export default function ProductManagement() {
-  const [actualCatgory, setActualCategory] = useState(0);
+  const [actualCategory, setActualCategory] = useState(0);
   const [actualSubCatgory, setActualSubCategory] = useState(0);
   const [showProducts, setShowProducts] = useState(false);
   const { user } = useAuth();

@@ -16,7 +16,7 @@ import Spinner from "../../../components/spinner";
 import { getCategorys } from "../../../services/api/categorys";
 import {
   createSubcategory,
-  getSubcategorys,
+  getSubCategorys,
 } from "../../../services/api/subcategorys";
 import {
   CenterSpinner,
@@ -36,7 +36,7 @@ export default function RegisterSubCategorys() {
     open: false,
   });
 
-  const dataSubctagorys = useQuery("subcategorys", getSubcategorys);
+  const dataSubctagorys = useQuery("subcategorys", getSubCategorys);
 
   const dataCategorys = useQuery("categorysRegister", getCategorys, {
     onSuccess: (data) => {
@@ -49,7 +49,7 @@ export default function RegisterSubCategorys() {
   const mutation = useMutation(createSubcategory, {
     onSuccess: () => {
       setLoading(false);
-      client.invalidateQueries("subcategorysRegister");
+      client.invalidateQueries("subcategorys");
       setMessageError({
         type: "success",
         message: "Subategoria cadastrada com sucesso",
@@ -130,7 +130,7 @@ export default function RegisterSubCategorys() {
                   />
                 </ContainerText>
                 <FilledButton type="submit" loading={loading}>
-                  Editar
+                  Cadastrar
                 </FilledButton>
                 {messageError && (
                   <MessageError
@@ -144,7 +144,9 @@ export default function RegisterSubCategorys() {
           </ContainerForm>
           <ContainerCards>
             {dataSubctagorys.data.map((subCategory, index) => {
-              return <Card key={index} name={subCategory.nome} register />;
+              if (subCategory.categoriaId === formik.values.categoriaId) {
+                return <Card key={index} name={subCategory.nome} register />;
+              }
             })}
           </ContainerCards>
         </>

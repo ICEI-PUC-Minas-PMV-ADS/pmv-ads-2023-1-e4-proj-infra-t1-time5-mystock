@@ -25,7 +25,7 @@ export default function ModalDelete(props) {
   const mutation = useMutation(props.api, {
     onSuccess: () => {
       setLoading(false);
-      client.invalidateQueries("categorysManagmente");
+      client.invalidateQueries(props.invalidateQuery);
       props.closeModal(false);
     },
     onError: (e) => {

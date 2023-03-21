@@ -6,7 +6,6 @@ using MyStock.Models;
 
 namespace MyStock.Controllers
 {
-    /* [Authorize] */
     [Route("api/[controller]")]
     [ApiController]
     public class SubCategoriasController : ControllerBase

@@ -5,7 +5,6 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import ModalDelete from "../modalDelete";
-import { deleteCategory } from "../../services/api/categorys";
 
 export default function Card(props) {
   const [modal, setModal] = useState(false);
@@ -52,7 +51,8 @@ export default function Card(props) {
           item={props.name}
           closeModal={setModal}
           id={props.id}
-          api={deleteCategory}
+          api={props.api}
+          invalidateQuery={props.invalidateQuery}
         />
       )}
     </CardStyle>

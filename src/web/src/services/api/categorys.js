@@ -26,7 +26,6 @@ export async function editCategory(reqData) {
 }
 
 export async function deleteCategory(reqData) {
-  console.log(reqData);
   const { data } = await http.delete(`api/Categorias/${reqData.id}`);
   return data;
 }
