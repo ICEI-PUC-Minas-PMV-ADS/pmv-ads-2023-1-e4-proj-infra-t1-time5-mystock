@@ -64,6 +64,7 @@ export default function RegisterSubCategorys() {
       }, 3000);
     },
     onError: (e) => {
+      console.dir(e);
       setLoading(false);
       setMessageError({
         type: "error",
