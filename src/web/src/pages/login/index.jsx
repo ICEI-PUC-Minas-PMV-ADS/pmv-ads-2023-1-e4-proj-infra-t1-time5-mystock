@@ -15,12 +15,18 @@ import {
   Label,
 } from "../../components/componentsForm/stylesGlobal";
 import FilledButton from "../../components/filledButton";
+import MessageError from "../../components/messageError";
 import useAuth from "../../context/auth";
 import { Form } from "../../styleGlobal/styles";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
-  const { login, user } = useAuth();
+  const { login } = useAuth();
+  const [messageError, setMessageError] = useState({
+    type: "",
+    message: "",
+    open: false,
+  });
 
   const navigate = useNavigate();
 
@@ -33,7 +39,6 @@ export default function Login() {
     onSubmit: (values) => {
       setLoading(true);
       login({
-        // Lembrar de falar com o Rapha para fazer com que a Api aceite o email do usuário
         email: values.email,
         senha: values.senha,
       }).then(
@@ -42,7 +47,19 @@ export default function Login() {
           navigate("/products");
         },
         (e) => {
-          console.log(e);
+          setLoading(false);
+          setMessageError({
+            type: "error",
+            message: "Email ou Senha inválidos. Por favor, tente novamente",
+            open: true,
+          });
+          setTimeout(() => {
+            setMessageError({
+              type: "",
+              message: "",
+              open: false,
+            });
+          }, 3000);
         }
       );
     },
@@ -89,6 +106,13 @@ export default function Login() {
           <FilledButton loading={loading} type="submit">
             Entrar
           </FilledButton>
+          {messageError && (
+            <MessageError
+              type={messageError.type}
+              message={messageError.message}
+              display={messageError.open}
+            />
+          )}
         </Form>
 
         <EndingText>

@@ -117,7 +117,7 @@ export const EndingText = styled.div`
   max-width: 400px;
   margin-top: 15px;
   h4 {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 15px;
   }

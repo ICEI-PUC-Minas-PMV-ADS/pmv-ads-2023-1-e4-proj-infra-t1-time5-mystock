@@ -30,9 +30,10 @@ export default function EditCategorys() {
   });
   const { id } = useParams();
   const { data, isLoading } = useQuery(["categorysEdit", id], getCategoryById, {
-    onSuccess: () => {
-      formik.setFieldValue("id", id);
-      formik.setFieldValue("nome", data && data.nome);
+    onSuccess: (data) => {
+      for (let key in data) {
+        formik.setFieldValue(key, data[key]);
+      }
     },
   });
 
@@ -69,7 +70,7 @@ export default function EditCategorys() {
   const formik = useFormik({
     initialValues: {
       id: "",
-      nome: data ? data.nome : null,
+      nome: "",
     },
 
     onSubmit: (values) => {
