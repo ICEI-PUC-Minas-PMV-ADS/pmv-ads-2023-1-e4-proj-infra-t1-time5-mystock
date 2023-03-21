@@ -19,7 +19,10 @@ import {
 import { createProducts, getProducts } from "../../../services/api/products";
 import { useState } from "react";
 import { useFormik } from "formik";
-import { getSubcategorys } from "../../../services/api/subcategorys";
+import {
+  getSubCategorys,
+  getSubcategorys,
+} from "../../../services/api/subcategorys";
 import Spinner from "../../../components/spinner";
 
 export default function RegisterProduct() {
@@ -34,7 +37,7 @@ export default function RegisterProduct() {
     refetchOnWindowFocus: false,
   });
 
-  const dataSubcategorys = useQuery("subcategorys", getSubcategorys);
+  const dataSubcategorys = useQuery("subcategorys", getSubCategorys);
 
   const client = useQueryClient();
 

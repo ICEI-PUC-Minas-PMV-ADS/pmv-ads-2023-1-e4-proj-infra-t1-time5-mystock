@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
 import SideManager from "../../../components/sideManager";
@@ -8,71 +8,85 @@ import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
 import { BsArrowLeft } from "react-icons/bs";
 import Selector from "../../../components/selector";
 import Card from "../../../components/card";
+import { useQuery } from "react-query";
+import { getCategorys } from "../../../services/api/categorys";
+import { getSubCategorys } from "../../../services/api/subcategorys";
+import { useFormik } from "formik";
 
 export default function SubcategorysManagement() {
-  const [actualCatgory, setActualCategory] = useState(0);
-  const [actualSubCatgory, setActualSubCategory] = useState(0);
   const [showProducts, setShowProducts] = useState(false);
 
-  const categorys = [
-    { name: "Eletrônicos", id: 0 },
-    { name: "Roupas", id: 1 },
-    { name: "Sapatos", id: 2 },
-  ];
+  const categorys = useQuery("categorys", getCategorys);
+  const subCategorys = useQuery("subcategorys", getSubCategorys, {
+    onSuccess: (data) => {
+      formik.setFieldValue("id", data[0].categoriaId);
+    },
+  });
 
-  const subCategorys = [
-    { name: "Celulares", categoryId: 0, id: 0 },
-    { name: "Camisas", categoryId: 1, id: 1 },
-    { name: "Tênis", categoryId: 2, id: 2 },
-  ];
+  const formik = useFormik({
+    initialValues: {
+      id: "",
+    },
+  });
+
+  const amountSubcategorys = useMemo(() => {
+    const filterAmount =
+      subCategorys.data &&
+      subCategorys.data.filter((x) => x.categoriaId === formik.values.id);
+
+    return filterAmount;
+  }, []);
 
   return (
     <Container>
-      <ContainerForm>
-        <TitlePages marginTop="40px">
-          Gerenciar <span>Subcategorias</span>
-        </TitlePages>
-        <DescriptionPages>
-          Escolha uma subcategoria a ser gerenciada
-        </DescriptionPages>
-        <ContentCards>
-          {categorys.map((category, index) => {
-            return (
-              <Selector
-                key={index}
-                category={category}
-                setActualSubCategory={setActualSubCategory}
-                setShowProducts={setShowProducts}
-                setActualCategory={setActualCategory}
-              />
-            );
-          })}
-        </ContentCards>
-      </ContainerForm>
-      <ContainerCards show={showProducts}>
-        <ButtonBack onClick={() => setShowProducts(false)}>
-          <BsArrowLeft className="icon" />
-        </ButtonBack>
-        <SideManager type="Subcategorias" amount="23" />
-        <CardsWrapper>
-          {subCategorys.map((subCategory, index) => {
-            return (
-              <>
-                {subCategory.categoryId === actualCatgory && (
-                  <Card
+      {categorys.data && subCategorys.data ? (
+        <>
+          <ContainerForm>
+            <TitlePages marginTop="40px">
+              Gerenciar <span>Subcategorias</span>
+            </TitlePages>
+            <DescriptionPages>
+              Escolha uma subcategoria a ser gerenciada
+            </DescriptionPages>
+            <ContentCards>
+              {categorys.data.map((category, index) => {
+                return (
+                  <Selector
                     key={index}
-                    name={subCategory.name}
-                    amount={subCategory.amount}
-                    updatedAt={subCategory.updatedAt}
-                    createdAt={subCategory.createdAt}
-                    id={subCategory.id}
+                    category={category}
+                    setShowProducts={setShowProducts}
+                    formik={formik}
                   />
-                )}
-              </>
-            );
-          })}
-        </CardsWrapper>
-      </ContainerCards>
+                );
+              })}
+            </ContentCards>
+          </ContainerForm>
+          <ContainerCards show={showProducts}>
+            <ButtonBack onClick={() => setShowProducts(false)}>
+              <BsArrowLeft className="icon" />
+            </ButtonBack>
+            <SideManager
+              type="Subcategorias"
+              amount={amountSubcategorys && amountSubcategorys.length}
+            />
+            <CardsWrapper>
+              {subCategorys.data.map((subCategory, index) => {
+                if (subCategory.categoriaId === formik.values.id) {
+                  return (
+                    <Card
+                      key={index}
+                      name={subCategory.nome}
+                      id={subCategory.id}
+                    />
+                  );
+                }
+              })}
+            </CardsWrapper>
+          </ContainerCards>
+        </>
+      ) : (
+        "Carregando"
+      )}
     </Container>
   );
 }

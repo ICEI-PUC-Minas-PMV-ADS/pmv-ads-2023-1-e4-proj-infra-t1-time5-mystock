@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace MyStock.Controllers
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ProdutosController : ControllerBase
@@ -17,30 +16,30 @@ namespace MyStock.Controllers
         {
             _context = context;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult> ListarTodos()
         {
             var model = await _context.produtos.ToListAsync();
-            return Ok (model);
+            return Ok(model);
         }
         [HttpPost]
         public async Task<ActionResult> Criar(Produto model)
         {
-            
-            _context.produtos.Add(model);
-            await _context.SaveChangesAsync();  
 
-            return CreatedAtAction("PesquisarPorId", new {id = model.Id}, model);
+            _context.produtos.Add(model);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("PesquisarPorId", new { id = model.Id }, model);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult> PesquisarPorId(int id)
         {
             var model = await _context.produtos
-                .FirstOrDefaultAsync(c=> c.Id==id);
+                .FirstOrDefaultAsync(c => c.Id == id);
 
-            if (model == null)  return NotFound();
+            if (model == null) return NotFound();
 
             return Ok(model);
 
@@ -66,7 +65,7 @@ namespace MyStock.Controllers
         {
             var model = await _context.produtos.FindAsync(id);
 
-            if(model == null) return NotFound();
+            if (model == null) return NotFound();
 
             _context.produtos.Remove(model);
             _context.SaveChanges();
