@@ -22,7 +22,9 @@ export default function SelectPersonality(props) {
                 <li
                   key={index}
                   onClick={() => {
-                    props.setActualCategory(index);
+                    if (props.setActualCategory) {
+                      props.setActualCategory(index);
+                    }
                     props.onChange(item.id);
                     setOpenDrop(false);
                   }}

@@ -28,6 +28,7 @@ import {
 
 export default function EditSubcategorys() {
   const [categorysFilter, setCategorysFilter] = useState();
+  const [actualCategory, setActualCategory] = useState();
   const [filterSelect, setFilterSelect] = useState();
   const [dataCategorysFilter, setDataCategorysFilter] = useState();
   const [loading, setLoading] = useState(false);
@@ -37,15 +38,7 @@ export default function EditSubcategorys() {
     open: false,
   });
   const { id } = useParams();
-  useEffect(() => {
-    var filterSelectCategory = "";
-    if (categorysFilter && dataCategorysFilter) {
-      filterSelectCategory = dataCategorysFilter.filter(
-        (x) => x.id === categorysFilter.categoriaId
-      );
-    }
-    setFilterSelect(filterSelectCategory);
-  }, [categorysFilter, dataCategorysFilter]);
+
   const categorys = useQuery("categorys", getCategorys, {
     onSuccess: (data) => {
       setDataCategorysFilter(data);
@@ -59,6 +52,16 @@ export default function EditSubcategorys() {
       setCategorysFilter(data);
     },
   });
+
+  useEffect(() => {
+    var filterSelectCategory = "";
+    if (categorysFilter && dataCategorysFilter) {
+      filterSelectCategory = dataCategorysFilter.filter(
+        (x) => x.id === categorysFilter.categoriaId
+      );
+    }
+    setFilterSelect(filterSelectCategory);
+  }, [categorysFilter, dataCategorysFilter]);
 
   const client = useQueryClient();
 
@@ -133,8 +136,13 @@ export default function EditSubcategorys() {
             <ContainerText>
               <Label>Categoria</Label>
               <SelectPersonality
-                value={filterSelect && filterSelect[0].nome}
+                value={
+                  categorys.data && categorys.data[actualCategory]
+                    ? categorys.data[actualCategory].nome
+                    : filterSelect && filterSelect[0].nome
+                }
                 itensList={categorys && categorys.data}
+                setActualCategory={setActualCategory}
                 onChange={(value) => {
                   formik.setFieldValue("categoriaId", value);
                 }}
