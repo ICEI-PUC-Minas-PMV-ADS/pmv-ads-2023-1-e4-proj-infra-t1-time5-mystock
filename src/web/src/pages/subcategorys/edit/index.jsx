@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { useParams } from "react-router";
 import Card from "../../../components/card";
@@ -27,7 +27,9 @@ import {
 } from "../../../styleGlobal/styles";
 
 export default function EditSubcategorys() {
-  const [actualCategory, setActualCategory] = useState(0);
+  const [categorysFilter, setCategorysFilter] = useState();
+  const [filterSelect, setFilterSelect] = useState();
+  const [dataCategorysFilter, setDataCategorysFilter] = useState();
   const [loading, setLoading] = useState(false);
   const [messageError, setMessageError] = useState({
     type: "",
@@ -35,18 +37,28 @@ export default function EditSubcategorys() {
     open: false,
   });
   const { id } = useParams();
-  const categorys = useQuery("categorys", getCategorys);
-  const { data, isLoading } = useQuery(
-    ["subcategorysEdit", id],
-    getSubcategoryById,
-    {
-      onSuccess: (data) => {
-        for (let key in data) {
-          formik.setFieldValue(key, data[key]);
-        }
-      },
+  useEffect(() => {
+    var filterSelectCategory = "";
+    if (categorysFilter && dataCategorysFilter) {
+      filterSelectCategory = dataCategorysFilter.filter(
+        (x) => x.id === categorysFilter.categoriaId
+      );
     }
-  );
+    setFilterSelect(filterSelectCategory);
+  }, [categorysFilter, dataCategorysFilter]);
+  const categorys = useQuery("categorys", getCategorys, {
+    onSuccess: (data) => {
+      setDataCategorysFilter(data);
+    },
+  });
+  const { data } = useQuery(["subcategorysEdit", id], getSubcategoryById, {
+    onSuccess: (data) => {
+      for (let key in data) {
+        formik.setFieldValue(key, data[key]);
+      }
+      setCategorysFilter(data);
+    },
+  });
 
   const client = useQueryClient();
 
@@ -68,13 +80,19 @@ export default function EditSubcategorys() {
       }, 3000);
     },
     onError: (e) => {
+      setLoading(false);
+      setMessageError({
+        type: "error",
+        message: "Erro ao editar categoria",
+        open: true,
+      });
       setTimeout(() => {
         setMessageError({
-          type: "error",
-          message: "Erro ao editar categoria",
-          open: true,
+          type: "",
+          message: "",
+          open: false,
         });
-      }, 4000);
+      }, 3000);
     },
   });
 
@@ -82,7 +100,7 @@ export default function EditSubcategorys() {
     initialValues: {
       id: "",
       nome: "",
-      categoriaId: "",
+      categoriaId: categorys,
     },
 
     onSubmit: (values) => {
@@ -115,9 +133,8 @@ export default function EditSubcategorys() {
             <ContainerText>
               <Label>Categoria</Label>
               <SelectPersonality
-                value={categorys && categorys.data[actualCategory].nome}
+                value={filterSelect && filterSelect[0].nome}
                 itensList={categorys && categorys.data}
-                setActualCategory={setActualCategory}
                 onChange={(value) => {
                   formik.setFieldValue("categoriaId", value);
                 }}

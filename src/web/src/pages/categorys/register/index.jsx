@@ -53,13 +53,19 @@ export default function RegisterCategory() {
       }, 3000);
     },
     onError: (e) => {
+      setLoading(false);
+      setMessageError({
+        type: "error",
+        message: "Erro ao cadastrar categoria",
+        open: true,
+      });
       setTimeout(() => {
         setMessageError({
-          type: "error",
-          message: "Erro ao cadastrar categoria",
-          open: true,
+          type: "",
+          message: "",
+          open: false,
         });
-      }, 4000);
+      }, 3000);
     },
   });
 
