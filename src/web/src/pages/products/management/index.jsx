@@ -36,7 +36,7 @@ export default function ProductManagement() {
               Escolha uma categoria dos produtos a serem gerenciados
             </DescriptionPages>
             <ContentCards>
-              {categorys &&
+              {categorys.data &&
                 categorys.data.map((category, index) => {
                   return (
                     <Selector
@@ -63,10 +63,7 @@ export default function ProductManagement() {
                     {product.subcategoryId === actualSubCatgory && (
                       <Card
                         key={index}
-                        name={product.name}
-                        amount={product.amount}
-                        updatedAt={product.updatedAt}
-                        createdAt={product.createdAt}
+                        name={product.nome}
                         id={product.id}
                         type="produto"
                       />

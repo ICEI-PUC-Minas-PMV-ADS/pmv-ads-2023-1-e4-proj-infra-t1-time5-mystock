@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MyStock2.props" />
+</Project>
