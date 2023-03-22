@@ -22,9 +22,7 @@ export function AuthProvider({ children }) {
 
   async function signUp(reqData) {
     const { data } = await http.post("api/Usuarios/", reqData);
-    setUser(data);
-    setToken(data.jwtToken);
-    localStorage.setItem("token", data.jwtToken);
+    return data;
   }
 
   async function logout() {
