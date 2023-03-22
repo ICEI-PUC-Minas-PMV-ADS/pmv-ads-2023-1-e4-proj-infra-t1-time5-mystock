@@ -12,6 +12,8 @@ import useAuth from "../../../context/auth";
 import { useQuery } from "react-query";
 import { getProducts } from "../../../services/api/products";
 import Spinner from "../../../components/spinner";
+import { getCategorys } from "../../../services/api/categorys";
+import { getSubCategorys } from "../../../services/api/subcategorys";
 
 export default function ProductManagement() {
   const [actualCategory, setActualCategory] = useState(0);
@@ -19,18 +21,8 @@ export default function ProductManagement() {
   const [showProducts, setShowProducts] = useState(false);
   const { user } = useAuth();
   const { data } = useQuery("products", getProducts);
-
-  const categorys = [
-    { name: "Eletrônicos", id: 0 },
-    { name: "Roupas", id: 1 },
-    { name: "Sapatos", id: 2 },
-  ];
-
-  const subCategorys = [
-    { name: "Celulares", categoryId: 0, id: 0 },
-    { name: "Camisas", categoryId: 1, id: 1 },
-    { name: "Tênis", categoryId: 2, id: 2 },
-  ];
+  const categorys = useQuery("categorysProduct", getCategorys);
+  const subcategorys = useQuery("subcategorysProduct", getSubCategorys);
 
   return (
     <Container>
@@ -44,18 +36,19 @@ export default function ProductManagement() {
               Escolha uma categoria dos produtos a serem gerenciados
             </DescriptionPages>
             <ContentCards>
-              {categorys.map((category, index) => {
-                return (
-                  <Selector
-                    key={index}
-                    category={category}
-                    setActualSubCategory={setActualSubCategory}
-                    setShowProducts={setShowProducts}
-                    setActualCategory={setActualCategory}
-                    subCategorys={subCategorys}
-                  />
-                );
-              })}
+              {categorys &&
+                categorys.data.map((category, index) => {
+                  return (
+                    <Selector
+                      key={index}
+                      category={category}
+                      setActualSubCategory={setActualSubCategory}
+                      setShowProducts={setShowProducts}
+                      setActualCategory={setActualCategory}
+                      subCategorys={subcategorys && subcategorys.data}
+                    />
+                  );
+                })}
             </ContentCards>
           </ContainerForm>
           <ContainerCards show={showProducts}>

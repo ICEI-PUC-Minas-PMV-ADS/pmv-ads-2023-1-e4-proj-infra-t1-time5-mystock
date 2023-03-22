@@ -16,7 +16,10 @@ export default function Selector(props) {
       <TitleCategoryCard
         onClick={() => {
           props.setActualCategory(props.id);
-          props.formik.setFieldValue("id", props.category.id);
+          if (props.formik) {
+            props.formik.setFieldValue("id", props.category.id);
+          }
+
           setOpenSubcategorys({
             open: !openSubcategorys.open,
             item: props.category.id,
@@ -45,7 +48,7 @@ export default function Selector(props) {
           {props.subCategorys.map((item, index) => {
             return (
               <>
-                {item.categoryId === props.category.id && (
+                {item.categoriaId === props.category.id && (
                   <h3
                     key={index}
                     onClick={() => {
