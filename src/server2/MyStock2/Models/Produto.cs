@@ -15,8 +15,5 @@ namespace MyStock.Models
         public int Quantidade { get; set; }
 
         public int SubCategoriaId { get; set; }
-        
-        
-
     }
 }
