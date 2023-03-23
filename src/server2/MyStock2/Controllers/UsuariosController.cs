@@ -84,13 +84,13 @@ namespace MyStock.Controllers
         public async Task<ActionResult> Autenticacao(AutenticacaoDto model)
         {
             var dbusuario = await _context.usuarios.FirstOrDefaultAsync( c => c.Email == model.Email);
-
+            
             if (dbusuario == null || !BCrypt.Net.BCrypt.Verify(model.Senha, dbusuario.Senha))
                 return Unauthorized();
 
             var jwt = GerarJwtToken(dbusuario);
 
-            return Ok(new {jwtToken= jwt});
+            return Ok(new {jwtToken= jwt,dbusuario= dbusuario});
         }
 
         private object GerarJwtToken(Usuario model)
