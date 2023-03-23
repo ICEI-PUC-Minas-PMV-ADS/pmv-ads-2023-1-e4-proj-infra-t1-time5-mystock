@@ -18,13 +18,13 @@ namespace MyStock.Controllers
             _context = context; 
         }
 
-        [HttpGet]
+        [HttpGet("{UsuarioId}")]
         public async Task<ActionResult> ListarTodos()
         {
             var model = await _context.categorias.ToListAsync();
             return Ok(model);
         }
-        [HttpPost]
+        [HttpPost("{UsuarioId}")]
         public async Task<ActionResult> Criar(Categoria model)
         {
 
