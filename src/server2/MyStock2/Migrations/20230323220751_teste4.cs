@@ -5,7 +5,7 @@
 namespace MyStock2.Migrations
 {
     /// <inheritdoc />
-    public partial class M001 : Migration
+    public partial class teste4 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -11,8 +11,8 @@ using MyStock.Models;
 namespace MyStock2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230321174413_M001")]
-    partial class M001
+    [Migration("20230323220751_teste4")]
+    partial class teste4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -124,35 +124,29 @@ namespace MyStock2.Migrations
 
             modelBuilder.Entity("MyStock.Models.Categoria", b =>
                 {
-                    b.HasOne("MyStock.Models.Usuario", "Usuario")
+                    b.HasOne("MyStock.Models.Usuario", null)
                         .WithMany("Categorias")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("MyStock.Models.Produto", b =>
                 {
-                    b.HasOne("MyStock.Models.SubCategoria", "SubCategoria")
+                    b.HasOne("MyStock.Models.SubCategoria", null)
                         .WithMany("Produtos")
                         .HasForeignKey("SubCategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("SubCategoria");
                 });
 
             modelBuilder.Entity("MyStock.Models.SubCategoria", b =>
                 {
-                    b.HasOne("MyStock.Models.Categoria", "categoria")
+                    b.HasOne("MyStock.Models.Categoria", null)
                         .WithMany("SubCategorias")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("categoria");
                 });
 
             modelBuilder.Entity("MyStock.Models.Categoria", b =>

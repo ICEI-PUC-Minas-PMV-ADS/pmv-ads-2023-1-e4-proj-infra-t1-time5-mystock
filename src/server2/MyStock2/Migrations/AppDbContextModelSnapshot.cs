@@ -121,35 +121,29 @@ namespace MyStock2.Migrations
 
             modelBuilder.Entity("MyStock.Models.Categoria", b =>
                 {
-                    b.HasOne("MyStock.Models.Usuario", "Usuario")
+                    b.HasOne("MyStock.Models.Usuario", null)
                         .WithMany("Categorias")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("MyStock.Models.Produto", b =>
                 {
-                    b.HasOne("MyStock.Models.SubCategoria", "SubCategoria")
+                    b.HasOne("MyStock.Models.SubCategoria", null)
                         .WithMany("Produtos")
                         .HasForeignKey("SubCategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("SubCategoria");
                 });
 
             modelBuilder.Entity("MyStock.Models.SubCategoria", b =>
                 {
-                    b.HasOne("MyStock.Models.Categoria", "categoria")
+                    b.HasOne("MyStock.Models.Categoria", null)
                         .WithMany("SubCategorias")
                         .HasForeignKey("CategoriaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("categoria");
                 });
 
             modelBuilder.Entity("MyStock.Models.Categoria", b =>
