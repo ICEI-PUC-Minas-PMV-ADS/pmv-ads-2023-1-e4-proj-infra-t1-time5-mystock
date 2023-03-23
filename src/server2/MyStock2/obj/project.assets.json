@@ -3804,31 +3804,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rapha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Notebook Acer\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rapha\\OneDrive\\Documentos\\MyStock2\\MyStock2\\MyStock2.csproj",
+      "projectUniqueName": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
       "projectName": "MyStock2",
-      "projectPath": "C:\\Users\\rapha\\OneDrive\\Documentos\\MyStock2\\MyStock2\\MyStock2.csproj",
-      "packagesPath": "C:\\Users\\rapha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rapha\\OneDrive\\Documentos\\MyStock2\\MyStock2\\obj\\",
+      "projectPath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
+      "packagesPath": "C:\\Users\\Notebook Acer\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rapha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Notebook Acer\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3891,6 +3884,24 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.13, 6.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[6.0.13, 6.0.13]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.13, 6.0.13]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.13, 6.0.13]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -3899,7 +3910,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
