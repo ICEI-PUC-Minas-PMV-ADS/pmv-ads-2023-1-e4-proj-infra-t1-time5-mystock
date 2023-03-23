@@ -1,114 +1,84 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Card from "../../../components/card";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
 import SideManager from "../../../components/sideManager";
-import { Container } from "../../../styleGlobal/styles";
+import { CenterSpinner, Container } from "../../../styleGlobal/styles";
 import { CardsWrapper, ContentCards, ButtonBack } from "./styles";
 import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
 import { BsArrowLeft } from "react-icons/bs";
 import Selector from "../../../components/selector";
+import useAuth from "../../../context/auth";
+import { useQuery } from "react-query";
+import { getProducts } from "../../../services/api/products";
+import Spinner from "../../../components/spinner";
+import { getCategorys } from "../../../services/api/categorys";
+import { getSubCategorys } from "../../../services/api/subcategorys";
 
 export default function ProductManagement() {
-  const [actualCatgory, setActualCategory] = useState(0);
+  const [actualCategory, setActualCategory] = useState(0);
   const [actualSubCatgory, setActualSubCategory] = useState(0);
   const [showProducts, setShowProducts] = useState(false);
-
-  const categorys = [
-    { name: "Eletrônicos", id: 0 },
-    { name: "Roupas", id: 1 },
-    { name: "Sapatos", id: 2 },
-  ];
-
-  const subCategorys = [
-    { name: "Celulares", categoryId: 0, id: 0 },
-    { name: "Camisas", categoryId: 1, id: 1 },
-    { name: "Tênis", categoryId: 2, id: 2 },
-  ];
-
-  const products = [
-    {
-      id: 0,
-      name: "iPhone 11",
-      amount: 27,
-      subcategoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      id: 1,
-      name: "iPhone 11",
-      amount: 27,
-      subcategoryId: 0,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      id: 2,
-      name: "Blusa vermelha",
-      amount: 27,
-      subcategoryId: 1,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-    {
-      id: 3,
-      name: "Nike Shox",
-      amount: 27,
-      subcategoryId: 2,
-      updatedAt: "11/02/2023",
-      createdAt: "11/02/2023",
-    },
-  ];
+  const { user } = useAuth();
+  const { data } = useQuery("products", getProducts);
+  const categorys = useQuery("categorysProduct", getCategorys);
+  const subcategorys = useQuery("subcategorysProduct", getSubCategorys);
 
   return (
     <Container>
-      <ContainerForm>
-        <TitlePages marginTop="40px">
-          Gerenciar <span>Produtos</span>
-        </TitlePages>
-        <DescriptionPages>
-          Escolha uma categoria dos produtos a serem gerenciados
-        </DescriptionPages>
-        <ContentCards>
-          {categorys.map((category, index) => {
-            return (
-              <Selector
-                key={index}
-                category={category}
-                setActualSubCategory={setActualSubCategory}
-                setShowProducts={setShowProducts}
-                setActualCategory={setActualCategory}
-                subCategorys={subCategorys}
-              />
-            );
-          })}
-        </ContentCards>
-      </ContainerForm>
-      <ContainerCards show={showProducts}>
-        <ButtonBack onClick={() => setShowProducts(false)}>
-          <BsArrowLeft className="icon" />
-        </ButtonBack>
-        <SideManager type="produtos" amount="23" />
-        <CardsWrapper>
-          {products.map((product, index) => {
-            return (
-              <>
-                {product.subcategoryId === actualSubCatgory && (
-                  <Card
-                    key={index}
-                    name={product.name}
-                    amount={product.amount}
-                    updatedAt={product.updatedAt}
-                    createdAt={product.createdAt}
-                    id={product.id}
-                  />
-                )}
-              </>
-            );
-          })}
-        </CardsWrapper>
-      </ContainerCards>
+      {data ? (
+        <Fragment>
+          <ContainerForm>
+            <TitlePages marginTop="40px">
+              Gerenciar <span>Produtos</span>
+            </TitlePages>
+            <DescriptionPages>
+              Escolha uma categoria dos produtos a serem gerenciados
+            </DescriptionPages>
+            <ContentCards>
+              {categorys.data &&
+                categorys.data.map((category, index) => {
+                  return (
+                    <Selector
+                      key={index}
+                      category={category}
+                      setActualSubCategory={setActualSubCategory}
+                      setShowProducts={setShowProducts}
+                      setActualCategory={setActualCategory}
+                      subCategorys={subcategorys && subcategorys.data}
+                    />
+                  );
+                })}
+            </ContentCards>
+          </ContainerForm>
+          <ContainerCards show={showProducts}>
+            <ButtonBack onClick={() => setShowProducts(false)}>
+              <BsArrowLeft className="icon" />
+            </ButtonBack>
+            <SideManager type="produtos" amount="23" />
+            <CardsWrapper>
+              {data.map((product, index) => {
+                return (
+                  <>
+                    {product.subcategoryId === actualSubCatgory && (
+                      <Card
+                        key={index}
+                        name={product.nome}
+                        id={product.id}
+                        type="produto"
+                      />
+                    )}
+                  </>
+                );
+              })}
+            </CardsWrapper>
+          </ContainerCards>
+        </Fragment>
+      ) : (
+        <CenterSpinner>
+          <Spinner size="30px" />
+        </CenterSpinner>
+      )}
     </Container>
   );
 }

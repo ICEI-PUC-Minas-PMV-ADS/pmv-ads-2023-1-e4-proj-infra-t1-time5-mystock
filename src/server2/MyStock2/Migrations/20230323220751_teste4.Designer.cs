@@ -11,8 +11,8 @@ using MyStock.Models;
 namespace MyStock2.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230323204401_arthurMystock2")]
-    partial class arthurMystock2
+    [Migration("20230323220751_teste4")]
+    partial class teste4
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -2,19 +2,15 @@ import Card from "../../../components/card";
 import SideManager from "../../../components/sideManager";
 import { DescriptionPages, TitlePages } from "../../../styleGlobal/styles";
 import { Container, AlignText, CardsWrapper } from "./styles";
+import { useQuery } from "react-query";
+import { deleteCategory, getCategorys } from "../../../services/api/categorys";
 
 export default function CategoryManagement() {
-  const categorys = [
-    { name: "Eletrônicos", id: 0 },
-    { name: "Roupas", id: 1 },
-    { name: "Brinquedos", id: 2 },
-    { name: "Comidas", id: 3 },
-    { name: "Móveis", id: 4 },
-    { name: "Enxovais", id: 5 },
-  ];
+  const { data } = useQuery("categorysManagmente", getCategorys);
+
   return (
     <Container>
-      <SideManager type="categorias" amount="23" />
+      <SideManager type="categorias" amount={data && data.length} />
       <AlignText>
         <TitlePages marginTop="40px">
           Gerenciar <span>Categorias</span>
@@ -24,18 +20,25 @@ export default function CategoryManagement() {
         </DescriptionPages>
       </AlignText>
       <CardsWrapper>
-        {categorys.map((category, index) => {
-          return (
-            <Card
-              key={index}
-              name={category.name}
-              updatedAt={category.updatedAt}
-              createdAt={category.createdAt}
-              id={category.id}
-              m3
-            />
-          );
-        })}
+        {data && data.length > 0 ? (
+          data.map((category, index) => {
+            return (
+              <Card
+                key={index}
+                name={category.nome}
+                updatedAt={null}
+                createdAt={null}
+                id={category.id}
+                m3
+                type="categoria"
+                api={deleteCategory}
+                invalidateQuery={"categorysManagmente"}
+              />
+            );
+          })
+        ) : (
+          <p>Não há categorias para serem gerenciadas</p>
+        )}
       </CardsWrapper>
     </Container>
   );

@@ -12,6 +12,7 @@ import FilledButton from "../../../components/filledButton";
 import {
   Container,
   DescriptionPages,
+  InputsContent,
   TitlePages,
 } from "../../../styleGlobal/styles";
 
@@ -34,23 +35,25 @@ export default function EditProducts() {
           Ao lado é exibido as informações do produto. As alterações irão
           atualizar as informações.
         </DescriptionPages>
-        <ContainerText>
-          <Label>Nome</Label>
-          <Input type="text" name="name" />
-        </ContainerText>
-        <ContainerText>
-          <Label>Categoria</Label>
-          <Select name="category">
-            {categorys.map((category, index) => {
-              return <option key={index}>{category.name}</option>;
-            })}
-          </Select>
-        </ContainerText>
-        <ContainerText>
-          <Label>Quantidade</Label>
-          <Input type="text" name="quantity" />
-        </ContainerText>
-        <FilledButton>Editar</FilledButton>
+        <InputsContent>
+          <ContainerText>
+            <Label>Nome</Label>
+            <Input type="text" name="name" />
+          </ContainerText>
+          <ContainerText>
+            <Label>Categoria</Label>
+            <Select name="category">
+              {categorys.map((category, index) => {
+                return <option key={index}>{category.name}</option>;
+              })}
+            </Select>
+          </ContainerText>
+          <ContainerText>
+            <Label>Quantidade</Label>
+            <Input type="text" name="quantity" />
+          </ContainerText>
+          <FilledButton>Editar</FilledButton>
+        </InputsContent>
       </ContainerForm>
       <ContainerCards>
         <Card

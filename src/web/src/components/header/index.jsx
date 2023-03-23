@@ -8,10 +8,13 @@ import {
 } from "./styles";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
+import useAuth from "../../context/auth";
 
 export default function Header() {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
+  const { logout } = useAuth();
+
   return (
     <HeaderStyles>
       <h2 onClick={() => navigate("/products")}>myStock</h2>
@@ -29,8 +32,22 @@ export default function Header() {
           <li>
             <a onClick={() => navigate("/categorys")}>Categorias</a>
           </li>
+          <li>
+            <a onClick={() => navigate("/subcategorys")}>Subcategorias</a>
+          </li>
           <li className="user-data">
             <a onClick={() => navigate("/")}>Meus dados</a>
+          </li>
+          <li className="user-data">
+            <a
+              onClick={() => {
+                logout().then(() => {
+                  navigate("/login");
+                });
+              }}
+            >
+              Sair
+            </a>
           </li>
         </ul>
         <DataUser>

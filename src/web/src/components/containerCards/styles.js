@@ -8,9 +8,11 @@ export const ContainerCardStyle = styled.div`
   flex-wrap: wrap;
   padding: 10px;
   height: 100%;
-  gap: 0;
-  justify-content: none;
+  gap: 15px;
   position: relative;
+  justify-content: fle;
+
+  overflow-y: auto;
 
   @media (max-width: 700px) {
     position: absolute;

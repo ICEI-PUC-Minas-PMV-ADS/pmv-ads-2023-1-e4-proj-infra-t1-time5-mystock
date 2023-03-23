@@ -3,8 +3,12 @@ import { CardStyle } from "./styles";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+import ModalDelete from "../modalDelete";
 
 export default function Card(props) {
+  const [modal, setModal] = useState(false);
+  const [type, setType] = useState();
   const navigate = useNavigate();
   return (
     <CardStyle {...props}>
@@ -33,9 +37,23 @@ export default function Card(props) {
                 fontSize: props.max ? "40px" : "25px",
                 cursor: "pointer",
               }}
+              onClick={() => {
+                setModal(true);
+                setType(props.type);
+              }}
             />
           </DivRow>
         </DivRow>
+      )}
+      {modal && (
+        <ModalDelete
+          type={type}
+          item={props.name}
+          closeModal={setModal}
+          id={props.id}
+          api={props.api}
+          invalidateQuery={props.invalidateQuery}
+        />
       )}
     </CardStyle>
   );
