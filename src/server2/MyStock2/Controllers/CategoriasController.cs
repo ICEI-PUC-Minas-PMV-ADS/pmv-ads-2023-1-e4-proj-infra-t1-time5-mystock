@@ -18,7 +18,7 @@ namespace MyStock.Controllers
             _context = context; 
         }
 
-        [HttpGet("{UsuarioId}")]
+        [HttpGet]
         public async Task<ActionResult> ListarTodos()
         {
             var model = await _context.categorias.ToListAsync();
