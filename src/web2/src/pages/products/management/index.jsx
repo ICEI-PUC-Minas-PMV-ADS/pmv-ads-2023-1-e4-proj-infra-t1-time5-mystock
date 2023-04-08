@@ -3,7 +3,7 @@ import Card from "../../../components/card";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
 import SideManager from "../../../components/sideManager";
-import { CenterSpinner, Container } from "../../../styleGlobal/styles";
+import { Container } from "../../../styleGlobal/styles";
 import { CardsWrapper, ContentCards, ButtonBack } from "./styles";
 import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
 import { BsArrowLeft } from "react-icons/bs";
@@ -11,13 +11,11 @@ import Selector from "../../../components/selector";
 import useAuth from "../../../context/auth";
 import { useQuery } from "react-query";
 import { getProducts } from "../../../services/api/products";
-import Spinner from "../../../components/spinner";
 import { getCategorys } from "../../../services/api/categorys";
 import { getSubCategorys } from "../../../services/api/subcategorys";
 import { deleteProduct } from "../../../services/api/products";
 
 export default function ProductManagement() {
-  const [actualCategory, setActualCategory] = useState(0);
   const [actualSubCatgory, setActualSubCategory] = useState(0);
   const [showProducts, setShowProducts] = useState(false);
   const { user } = useAuth();
@@ -62,8 +60,6 @@ export default function ProductManagement() {
     }
   }, [actualSubCatgory, test, data]);
 
-  console.log(filterAmount);
-
   return (
     <Container>
       {categorys && data && categorysFilter && test && filterAmount ? (
@@ -84,7 +80,6 @@ export default function ProductManagement() {
                       category={category}
                       setActualSubCategory={setActualSubCategory}
                       setShowProducts={setShowProducts}
-                      setActualCategory={setActualCategory}
                       subCategorys={test}
                     />
                   );
@@ -97,7 +92,9 @@ export default function ProductManagement() {
             </ButtonBack>
             <SideManager type="produtos" amount={filterAmount.length} />
             <CardsWrapper>
-              {test[actualSubCatgory] &&
+              {filterAmount &&
+              filterAmount.length > 0 &&
+              test[actualSubCatgory] ? (
                 data.map((product, index) => {
                   return (
                     <>
@@ -112,14 +109,17 @@ export default function ProductManagement() {
                       )}
                     </>
                   );
-                })}
+                })
+              ) : (
+                <p>Não há produtos a serem gerenciados</p>
+              )}
             </CardsWrapper>
           </ContainerCards>
         </Fragment>
       ) : (
-        <CenterSpinner>
-          <Spinner size="30px" />
-        </CenterSpinner>
+        <>
+          <p>Não há produtos para serem gerenciados</p>
+        </>
       )}
     </Container>
   );

@@ -12,7 +12,6 @@ import RegisterCategorys from "./pages/categorys/register";
 import RegisterSubCategorys from "./pages/subcategorys/register";
 import EditSubcategorys from "./pages/subcategorys/edit";
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -40,6 +39,7 @@ function App() {
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<SignIn />} />
+        <Route path="teste" />
       </Routes>
     </BrowserRouter>
   );

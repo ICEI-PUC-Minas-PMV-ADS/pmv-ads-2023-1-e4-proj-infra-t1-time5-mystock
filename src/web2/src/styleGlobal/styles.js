@@ -8,6 +8,11 @@ export const Container = styled.div`
   @media (max-width: 700px) {
     flex-direction: column;
   }
+
+  p {
+    text-align: center;
+    margin-top: 30px;
+  }
 `;
 
 export const CenterSpinner = styled.div`

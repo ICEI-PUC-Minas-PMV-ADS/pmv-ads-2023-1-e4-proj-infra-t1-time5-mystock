@@ -11,11 +11,21 @@ export default function Selector(props) {
     open: false,
     item: null,
   });
+
+  function openSubCategories() {
+    if (props.openSubcategories) {
+      props.setShowProducts(true);
+    }
+  }
+
   return (
-    <CardSubcategorys>
+    <CardSubcategorys onClick={openSubCategories}>
       <TitleCategoryCard
         onClick={() => {
-          props.setActualCategory(props.id);
+          if (props.setActualCategory) {
+            props.setActualCategory(props.id);
+          }
+
           if (props.formik) {
             props.formik.setFieldValue("id", props.category.id);
           }

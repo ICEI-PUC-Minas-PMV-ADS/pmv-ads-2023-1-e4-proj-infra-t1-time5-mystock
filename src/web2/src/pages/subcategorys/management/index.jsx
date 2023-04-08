@@ -30,7 +30,9 @@ export default function SubcategorysManagement() {
   const subCategorys = useQuery("subcategorys", getSubCategorys);
 
   useEffect(() => {
-    setActualCategory(categorysFilter && categorysFilter[0].id);
+    if (categorysFilter) {
+      setActualCategory(categorysFilter[0] && categorysFilter[0].id);
+    }
   }, [categorysFilter]);
 
   useEffect(() => {
@@ -42,8 +44,10 @@ export default function SubcategorysManagement() {
 
   return (
     <Container>
-      {categorys.data &&
+      {actualCategory &&
+      categorys.data &&
       subCategorys.data &&
+      filterAmount &&
       categorysFilter &&
       categorysFilter.length > 0 ? (
         <>
@@ -63,6 +67,7 @@ export default function SubcategorysManagement() {
                       category={category}
                       setShowProducts={setShowProducts}
                       setActualCategory={setActualCategory}
+                      openSubcategories
                       id={category.id}
                     />
                   )
@@ -74,10 +79,7 @@ export default function SubcategorysManagement() {
             <ButtonBack onClick={() => setShowProducts(false)}>
               <BsArrowLeft className="icon" />
             </ButtonBack>
-            <SideManager
-              type="Subcategorias"
-              amount={filterAmount && filterAmount.length}
-            />
+            <SideManager type="Subcategorias" amount={filterAmount.length} />
             <CardsWrapper>
               {filterAmount && filterAmount.length > 0 ? (
                 subCategorys.data.map((subCategory, index) => {
@@ -103,7 +105,9 @@ export default function SubcategorysManagement() {
           </ContainerCards>
         </>
       ) : (
-        "Nenhuma categoria foi caastrada"
+        <>
+          <p>Não subcategorias para serem gerenciadas</p>
+        </>
       )}
     </Container>
   );

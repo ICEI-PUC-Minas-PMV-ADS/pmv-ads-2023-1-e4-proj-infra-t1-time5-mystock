@@ -27,16 +27,44 @@ export default function Header() {
       <ContentNav display={menu}>
         <ul>
           <li>
-            <a onClick={() => navigate("/products")}>Produtos</a>
+            <a
+              onClick={() => {
+                navigate("/products");
+                setMenu(false);
+              }}
+            >
+              Produtos
+            </a>
           </li>
           <li>
-            <a onClick={() => navigate("/subcategorys")}>Subcategorias</a>
+            <a
+              onClick={() => {
+                navigate("/subcategorys");
+                setMenu(false);
+              }}
+            >
+              Subcategorias
+            </a>
           </li>
           <li>
-            <a onClick={() => navigate("/categorys")}>Categorias</a>
+            <a
+              onClick={() => {
+                navigate("/categorys");
+                setMenu(false);
+              }}
+            >
+              Categorias
+            </a>
           </li>
           <li className="user-data">
-            <a onClick={() => navigate("/")}>Meus dados</a>
+            <a
+              onClick={() => {
+                navigate("/");
+                setMenu(false);
+              }}
+            >
+              Meus dados
+            </a>
           </li>
           <li className="user-data">
             <a

@@ -25,23 +25,25 @@ export default function Card(props) {
 
           <DivRow gap="10px">
             {!props.max && (
-              <FiEdit
-                style={{ fontSize: "25px", cursor: "pointer" }}
-                onClick={() => {
-                  navigate(`edit/${props.id}`);
-                }}
-              />
+              <>
+                <FiEdit
+                  style={{ fontSize: "25px", cursor: "pointer" }}
+                  onClick={() => {
+                    navigate(`edit/${props.id}`);
+                  }}
+                />
+                <RiDeleteBin6Line
+                  style={{
+                    fontSize: props.max ? "40px" : "25px",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => {
+                    setModal(true);
+                    setType(props.type);
+                  }}
+                />
+              </>
             )}
-            <RiDeleteBin6Line
-              style={{
-                fontSize: props.max ? "40px" : "25px",
-                cursor: "pointer",
-              }}
-              onClick={() => {
-                setModal(true);
-                setType(props.type);
-              }}
-            />
           </DivRow>
         </DivRow>
       )}
