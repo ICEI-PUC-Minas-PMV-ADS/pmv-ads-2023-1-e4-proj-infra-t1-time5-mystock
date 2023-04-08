@@ -22,5 +22,3 @@ works.forEach((item) => {
   const newItem = primeiraLetra + item.substring(1);
   newWorks.push(newItem);
 });
-
-console.log(newWorks);

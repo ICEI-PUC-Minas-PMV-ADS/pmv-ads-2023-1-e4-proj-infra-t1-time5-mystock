@@ -25,11 +25,11 @@ import {
   InputsContent,
   TitlePages,
 } from "../../../styleGlobal/styles";
+import useAuth from "../../../context/auth";
 
 export default function EditSubcategorys() {
-  const [categorysFilter, setCategorysFilter] = useState();
-  const [actualCategory, setActualCategory] = useState();
-  const [filterSelect, setFilterSelect] = useState();
+  const { user } = useAuth();
+  const [actualCategory, setActualCategory] = useState(0);
   const [dataCategorysFilter, setDataCategorysFilter] = useState();
   const [loading, setLoading] = useState(false);
   const [messageError, setMessageError] = useState({
@@ -39,9 +39,9 @@ export default function EditSubcategorys() {
   });
   const { id } = useParams();
 
-  const categorys = useQuery("categorys", getCategorys, {
+  const categorys = useQuery("categorysEdit", getCategorys, {
     onSuccess: (data) => {
-      setDataCategorysFilter(data);
+      setDataCategorysFilter(data.filter((x) => x.usuarioId === user.id));
     },
   });
   const { data } = useQuery(["subcategorysEdit", id], getSubcategoryById, {
@@ -49,19 +49,8 @@ export default function EditSubcategorys() {
       for (let key in data) {
         formik.setFieldValue(key, data[key]);
       }
-      setCategorysFilter(data);
     },
   });
-
-  useEffect(() => {
-    var filterSelectCategory = "";
-    if (categorysFilter && dataCategorysFilter) {
-      filterSelectCategory = dataCategorysFilter.filter(
-        (x) => x.id === categorysFilter.categoriaId
-      );
-    }
-    setFilterSelect(filterSelectCategory);
-  }, [categorysFilter, dataCategorysFilter]);
 
   const client = useQueryClient();
 
@@ -114,62 +103,65 @@ export default function EditSubcategorys() {
 
   return (
     <Container>
-      <ContainerForm>
-        <Form onSubmit={formik.handleSubmit}>
-          <TitlePages>
-            Editar <span>Subategoria</span>
-          </TitlePages>
-          <DescriptionPages>
-            Ao lado é exibido as informações da subcategoria. As alterações irão
-            atualizar as informações.
-          </DescriptionPages>
-          <InputsContent>
-            <ContainerText>
-              <Label>Nome</Label>
-              <Input
-                type="text"
-                name="nome"
-                value={formik.values.nome}
-                onChange={formik.handleChange}
-              />
-            </ContainerText>
-            <ContainerText>
-              <Label>Categoria</Label>
-              <SelectPersonality
-                value={
-                  categorys.data && categorys.data[actualCategory]
-                    ? categorys.data[actualCategory].nome
-                    : filterSelect && filterSelect[0].nome
-                }
-                itensList={categorys && categorys.data}
-                setActualCategory={setActualCategory}
-                onChange={(value) => {
-                  formik.setFieldValue("categoriaId", value);
-                }}
-              />
-            </ContainerText>
-            <FilledButton type="submit" loading={loading}>
-              Editar
-            </FilledButton>
-            {messageError && (
-              <MessageError
-                type={messageError.type}
-                message={messageError.message}
-                display={messageError.open}
-              />
-            )}
-          </InputsContent>
-        </Form>
-      </ContainerForm>
-      <ContainerCards>
-        <Card
-          max
-          name={formik.values.nome}
-          updatedAt={null}
-          createdAt={null}
-          type="subcategoria"
-        />
-      </ContainerCards>
+      {data && (
+        <>
+          <ContainerForm>
+            <Form onSubmit={formik.handleSubmit}>
+              <TitlePages>
+                Editar <span>Subategoria</span>
+              </TitlePages>
+              <DescriptionPages>
+                Ao lado é exibido as informações da subcategoria. As alterações
+                irão atualizar as informações.
+              </DescriptionPages>
+              <InputsContent>
+                <ContainerText>
+                  <Label>Nome</Label>
+                  <Input
+                    type="text"
+                    name="nome"
+                    value={formik.values.nome}
+                    onChange={formik.handleChange}
+                  />
+                </ContainerText>
+                <ContainerText>
+                  <Label>Categoria</Label>
+                  <SelectPersonality
+                    value={
+                      dataCategorysFilter &&
+                      dataCategorysFilter[actualCategory].nome
+                    }
+                    itensList={dataCategorysFilter}
+                    setActualCategory={setActualCategory}
+                    onChange={(value) => {
+                      formik.setFieldValue("categoriaId", value);
+                    }}
+                  />
+                </ContainerText>
+                <FilledButton type="submit" loading={loading}>
+                  Editar
+                </FilledButton>
+                {messageError && (
+                  <MessageError
+                    type={messageError.type}
+                    message={messageError.message}
+                    display={messageError.open}
+                  />
+                )}
+              </InputsContent>
+            </Form>
+          </ContainerForm>
+          <ContainerCards>
+            <Card
+              max
+              name={formik.values.nome}
+              updatedAt={null}
+              createdAt={null}
+              type="subcategoria"
+            />
+          </ContainerCards>
+        </>
+      )}
     </Container>
   );
 }

@@ -20,18 +20,24 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { getCategorys, createCategory } from "../../../services/api/categorys";
 import MessageError from "../../../components/messageError";
 import Spinner from "../../../components/spinner";
+import useAuth from "../../../context/auth";
 
 export default function RegisterCategory() {
+  const { user } = useAuth();
   const [loading, setLoading] = useState(false);
   const [messageError, setMessageError] = useState({
     type: "",
     message: "",
     open: false,
   });
-  const { data, isLoading } = useQuery("categorysRegister", getCategorys, {
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  });
+  const { data, isLoading } = useQuery(
+    "categorysRegister",
+    getCategorys,
+    {
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  );
 
   const client = useQueryClient();
 
@@ -72,6 +78,7 @@ export default function RegisterCategory() {
   const formik = useFormik({
     initialValues: {
       nome: "",
+      usuarioId: user.id,
     },
 
     onSubmit: (values) => {
@@ -115,7 +122,7 @@ export default function RegisterCategory() {
         <ContainerCards>
           {data &&
             data.map((item, index) => {
-              return <Card m3 key={index} name={item.nome} register />;
+              return item.usuarioId === user.id && <Card m3 key={index} name={item.nome} register />;
             })}
         </ContainerCards>
       )}

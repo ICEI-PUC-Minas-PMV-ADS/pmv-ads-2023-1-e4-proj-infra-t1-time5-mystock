@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Card from "../../../components/card";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
@@ -14,6 +14,7 @@ import { getProducts } from "../../../services/api/products";
 import Spinner from "../../../components/spinner";
 import { getCategorys } from "../../../services/api/categorys";
 import { getSubCategorys } from "../../../services/api/subcategorys";
+import { deleteProduct } from "../../../services/api/products";
 
 export default function ProductManagement() {
   const [actualCategory, setActualCategory] = useState(0);
@@ -21,12 +22,51 @@ export default function ProductManagement() {
   const [showProducts, setShowProducts] = useState(false);
   const { user } = useAuth();
   const { data } = useQuery("products", getProducts);
-  const categorys = useQuery("categorysProduct", getCategorys);
+  const [categorysFilter, setCategorysFilter] = useState();
+  const [filterId, setFilterId] = useState();
+  const [test, setTest] = useState();
+  const [filterAmount, setFilterAmount] = useState();
+
+  const categorys = useQuery("categorysProduct", getCategorys, {
+    onSuccess: (data) => {
+      setCategorysFilter(data.filter((x) => x.usuarioId === user.id));
+    },
+  });
+
   const subcategorys = useQuery("subcategorysProduct", getSubCategorys);
+
+  useEffect(() => {
+    let ids = [];
+    categorysFilter &&
+      categorysFilter.forEach((category) => {
+        ids.push(category.id);
+      });
+    setFilterId(ids);
+  }, [categorysFilter]);
+
+  useEffect(() => {
+    const subCategorias = subcategorys.data
+      ? subcategorys.data.filter(
+          (x) => filterId && filterId.includes(x.categoriaId)
+        )
+      : [];
+
+    setTest(subCategorias);
+  }, [filterId, subcategorys.data]);
+
+  useEffect(() => {
+    if (test && test[actualSubCatgory]) {
+      setFilterAmount(
+        data.filter((x) => x.subCategoriaId === test[actualSubCatgory].id)
+      );
+    }
+  }, [actualSubCatgory, test, data]);
+
+  console.log(filterAmount);
 
   return (
     <Container>
-      {data ? (
+      {categorys && data && categorysFilter && test && filterAmount ? (
         <Fragment>
           <ContainerForm>
             <TitlePages marginTop="40px">
@@ -36,8 +76,8 @@ export default function ProductManagement() {
               Escolha uma categoria dos produtos a serem gerenciados
             </DescriptionPages>
             <ContentCards>
-              {categorys.data &&
-                categorys.data.map((category, index) => {
+              {categorysFilter &&
+                categorysFilter.map((category, index) => {
                   return (
                     <Selector
                       key={index}
@@ -45,7 +85,7 @@ export default function ProductManagement() {
                       setActualSubCategory={setActualSubCategory}
                       setShowProducts={setShowProducts}
                       setActualCategory={setActualCategory}
-                      subCategorys={subcategorys && subcategorys.data}
+                      subCategorys={test}
                     />
                   );
                 })}
@@ -55,22 +95,24 @@ export default function ProductManagement() {
             <ButtonBack onClick={() => setShowProducts(false)}>
               <BsArrowLeft className="icon" />
             </ButtonBack>
-            <SideManager type="produtos" amount="23" />
+            <SideManager type="produtos" amount={filterAmount.length} />
             <CardsWrapper>
-              {data.map((product, index) => {
-                return (
-                  <>
-                    {product.subcategoryId === actualSubCatgory && (
-                      <Card
-                        key={index}
-                        name={product.nome}
-                        id={product.id}
-                        type="produto"
-                      />
-                    )}
-                  </>
-                );
-              })}
+              {test[actualSubCatgory] &&
+                data.map((product, index) => {
+                  return (
+                    <>
+                      {product.subCategoriaId === test[actualSubCatgory].id && (
+                        <Card
+                          key={index}
+                          name={product.nome}
+                          id={product.id}
+                          type="produto"
+                          api={deleteProduct}
+                        />
+                      )}
+                    </>
+                  );
+                })}
             </CardsWrapper>
           </ContainerCards>
         </Fragment>

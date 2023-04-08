@@ -6,12 +6,22 @@ export async function getProducts() {
 }
 
 export async function createProducts(reqData) {
-  const form = new FormData();
+  const { data } = await http.post("api/Produtos", reqData);
+  return data;
+}
 
-  for (let key in reqData) {
-    form.append(key, reqData[key]);
-  }
+export async function editProduct(reqData) {
+  const { data } = await http.put(`api/Produtos/${reqData.id}`, reqData);
+  return data;
+}
 
-  const { data } = await http.post("api/Products", form);
+export async function getProductById(query) {
+  const id = query.queryKey[1];
+  const { data } = await http.get(`api/Produtos/${id}`);
+  return data;
+}
+
+export async function deleteProduct(reqData) {
+  const { data } = await http.delete(`api/Produtos/${reqData.id}`);
   return data;
 }

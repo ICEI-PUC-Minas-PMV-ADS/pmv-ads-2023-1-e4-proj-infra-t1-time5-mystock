@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import ContainerCards from "../../../components/containerCards";
 import ContainerForm from "../../../components/containerForms";
 import SideManager from "../../../components/sideManager";
-import { CenterSpinner, Container } from "../../../styleGlobal/styles";
+import { Container } from "../../../styleGlobal/styles";
 import { CardsWrapper, ContentCards, ButtonBack } from "./styles";
 import { TitlePages, DescriptionPages } from "../../../styleGlobal/styles";
 import { BsArrowLeft } from "react-icons/bs";
@@ -14,18 +14,24 @@ import {
   deleteSubcategory,
   getSubCategorys,
 } from "../../../services/api/subcategorys";
-import Spinner from "../../../components/spinner";
+import useAuth from "../../../context/auth";
 
 export default function SubcategorysManagement() {
-  const categorys = useQuery("categorys", getCategorys);
-  const subCategorys = useQuery("subcategorys", getSubCategorys);
   const [actualCategory, setActualCategory] = useState();
   const [filterAmount, setFilterAmount] = useState();
   const [showProducts, setShowProducts] = useState(false);
+  const [categorysFilter, setCategorysFilter] = useState();
+  const { user } = useAuth();
+  const categorys = useQuery("categorys", getCategorys, {
+    onSuccess: (data) => {
+      setCategorysFilter(data.filter((x) => x.usuarioId === user.id));
+    },
+  });
+  const subCategorys = useQuery("subcategorys", getSubCategorys);
 
   useEffect(() => {
-    setActualCategory(categorys.data && categorys.data[0].id);
-  }, [categorys.data]);
+    setActualCategory(categorysFilter && categorysFilter[0].id);
+  }, [categorysFilter]);
 
   useEffect(() => {
     setFilterAmount(
@@ -36,7 +42,10 @@ export default function SubcategorysManagement() {
 
   return (
     <Container>
-      {categorys.data && subCategorys.data ? (
+      {categorys.data &&
+      subCategorys.data &&
+      categorysFilter &&
+      categorysFilter.length > 0 ? (
         <>
           <ContainerForm>
             <TitlePages marginTop="40px">
@@ -48,13 +57,15 @@ export default function SubcategorysManagement() {
             <ContentCards>
               {categorys.data.map((category, index) => {
                 return (
-                  <Selector
-                    key={index}
-                    category={category}
-                    setShowProducts={setShowProducts}
-                    setActualCategory={setActualCategory}
-                    id={category.id}
-                  />
+                  category.usuarioId === user.id && (
+                    <Selector
+                      key={index}
+                      category={category}
+                      setShowProducts={setShowProducts}
+                      setActualCategory={setActualCategory}
+                      id={category.id}
+                    />
+                  )
                 );
               })}
             </ContentCards>
@@ -92,9 +103,7 @@ export default function SubcategorysManagement() {
           </ContainerCards>
         </>
       ) : (
-        <CenterSpinner>
-          <Spinner size="30px" />
-        </CenterSpinner>
+        "Nenhuma categoria foi caastrada"
       )}
     </Container>
   );

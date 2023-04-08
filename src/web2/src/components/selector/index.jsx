@@ -52,7 +52,7 @@ export default function Selector(props) {
                   <h3
                     key={index}
                     onClick={() => {
-                      props.setActualSubCategory(item.id);
+                      props.setActualSubCategory(index);
                       props.setShowProducts(true);
                     }}
                   >

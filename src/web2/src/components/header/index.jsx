@@ -13,7 +13,7 @@ import useAuth from "../../context/auth";
 export default function Header() {
   const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   return (
     <HeaderStyles>
@@ -30,10 +30,10 @@ export default function Header() {
             <a onClick={() => navigate("/products")}>Produtos</a>
           </li>
           <li>
-            <a onClick={() => navigate("/categorys")}>Categorias</a>
+            <a onClick={() => navigate("/subcategorys")}>Subcategorias</a>
           </li>
           <li>
-            <a onClick={() => navigate("/subcategorys")}>Subcategorias</a>
+            <a onClick={() => navigate("/categorys")}>Categorias</a>
           </li>
           <li className="user-data">
             <a onClick={() => navigate("/")}>Meus dados</a>
@@ -50,13 +50,17 @@ export default function Header() {
             </a>
           </li>
         </ul>
-        <DataUser>
-          <ImageUser />
-          <NameUser>
-            <h3>Laura Silva</h3>
-            <p>laura@email.com</p>
-          </NameUser>
-        </DataUser>
+        {user && (
+          <DataUser>
+            <ImageUser />
+            <NameUser>
+              <h3>
+                {user.name} {user.sobrenome}
+              </h3>
+              <p>{user.email}</p>
+            </NameUser>
+          </DataUser>
+        )}
       </ContentNav>
     </HeaderStyles>
   );

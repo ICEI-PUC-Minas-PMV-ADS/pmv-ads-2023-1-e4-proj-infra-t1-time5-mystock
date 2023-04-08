@@ -1,4 +1,4 @@
-import { useFormik } from "formik";
+import { Formik, useFormik } from "formik";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import Card from "../../../components/card";
@@ -26,9 +26,12 @@ import {
   InputsContent,
   TitlePages,
 } from "../../../styleGlobal/styles";
+import useAuth from "../../../context/auth";
 
 export default function RegisterSubCategorys() {
+  const { user } = useAuth();
   const [actualCategory, setActualCategory] = useState(0);
+  const [categorys, setCategorys] = useState();
   const [loading, setLoading] = useState(false);
   const [messageError, setMessageError] = useState({
     type: "",
@@ -40,7 +43,7 @@ export default function RegisterSubCategorys() {
 
   const dataCategorys = useQuery("categorysRegister", getCategorys, {
     onSuccess: (data) => {
-      formik.setFieldValue("categoriaId", data[actualCategory].id);
+      setCategorys(data.filter((x) => x.usuarioId === user.id));
     },
   });
 
@@ -93,61 +96,77 @@ export default function RegisterSubCategorys() {
     },
   });
 
+  const initialValues = {
+    nome: "",
+    categoriaId: categorys && categorys[actualCategory].id,
+  };
+
   return (
     <Container>
-      {dataSubctagorys.data && dataCategorys.data ? (
+      {categorys &&
+      categorys[actualCategory] &&
+      dataSubctagorys.data &&
+      dataCategorys.data ? (
         <>
           <ContainerForm>
-            <Form onSubmit={formik.handleSubmit}>
-              <TitlePages>
-                Cadastrar <span>Subategoria</span>
-              </TitlePages>
-              <DescriptionPages>
-                Ao lado é exibido as subcategorias relacionadas a categoria. As
-                alterações irão atualizar as informações.
-              </DescriptionPages>
-              <InputsContent>
-                <ContainerText>
-                  <Label>Nome</Label>
-                  <Input
-                    type="text"
-                    name="nome"
-                    onChange={formik.handleChange}
-                  />
-                </ContainerText>
-                <ContainerText>
-                  <Label>Categoria</Label>
-                  <SelectPersonality
-                    value={
-                      dataCategorys.data &&
-                      dataCategorys.data[actualCategory].nome
-                    }
-                    itensList={dataCategorys.data}
-                    setActualCategory={setActualCategory}
-                    onChange={(value) => {
-                      formik.setFieldValue("categoriaId", value);
-                    }}
-                  />
-                </ContainerText>
-                <FilledButton type="submit" loading={loading}>
-                  Cadastrar
-                </FilledButton>
-                {messageError && (
-                  <MessageError
-                    type={messageError.type}
-                    message={messageError.message}
-                    display={messageError.open}
-                  />
-                )}
-              </InputsContent>
-            </Form>
+            <Formik
+              initialValues={initialValues}
+              onSubmit={(values) => {
+                setLoading(true);
+                mutation.mutate(values);
+              }}
+            >
+              {(props) => (
+                <Form onSubmit={props.handleSubmit}>
+                  <TitlePages>
+                    Cadastrar <span>Subategoria</span>
+                  </TitlePages>
+                  <DescriptionPages>
+                    Ao lado é exibido as subcategorias relacionadas a categoria.
+                    As alterações irão atualizar as informações.
+                  </DescriptionPages>
+                  <InputsContent>
+                    <ContainerText>
+                      <Label>Nome</Label>
+                      <Input
+                        type="text"
+                        name="nome"
+                        onChange={props.handleChange}
+                      />
+                    </ContainerText>
+                    <ContainerText>
+                      <Label>Categoria</Label>
+                      <SelectPersonality
+                        value={categorys && categorys[actualCategory].nome}
+                        itensList={categorys}
+                        setActualCategory={setActualCategory}
+                        onChange={(value) => {
+                          props.setFieldValue("categoriaId", value);
+                        }}
+                      />
+                    </ContainerText>
+                    <FilledButton type="submit" loading={loading}>
+                      Cadastrar
+                    </FilledButton>
+                    {messageError && (
+                      <MessageError
+                        type={messageError.type}
+                        message={messageError.message}
+                        display={messageError.open}
+                      />
+                    )}
+                  </InputsContent>
+                </Form>
+              )}
+            </Formik>
           </ContainerForm>
           <ContainerCards>
-            {dataSubctagorys.data.map((subCategory, index) => {
-              if (subCategory.categoriaId === formik.values.categoriaId) {
-                return <Card key={index} name={subCategory.nome} register />;
-              }
-            })}
+            {dataSubctagorys.data &&
+              dataSubctagorys.data.map((subCategory, index) => {
+                if (subCategory.categoriaId === initialValues.categoriaId) {
+                  return <Card key={index} name={subCategory.nome} register />;
+                }
+              })}
           </ContainerCards>
         </>
       ) : (

@@ -12,6 +12,7 @@ import RegisterCategorys from "./pages/categorys/register";
 import RegisterSubCategorys from "./pages/subcategorys/register";
 import EditSubcategorys from "./pages/subcategorys/edit";
 
+
 function App() {
   return (
     <BrowserRouter>
