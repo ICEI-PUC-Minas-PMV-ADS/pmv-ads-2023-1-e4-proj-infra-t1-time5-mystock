@@ -11,6 +11,7 @@ import RegisterProduct from "./pages/products/register";
 import RegisterCategorys from "./pages/categorys/register";
 import RegisterSubCategorys from "./pages/subcategorys/register";
 import EditSubcategorys from "./pages/subcategorys/edit";
+import NotFound from "./components/notFound";
 
 function App() {
   return (
@@ -39,7 +40,6 @@ function App() {
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<SignIn />} />
-        <Route path="teste" />
       </Routes>
     </BrowserRouter>
   );

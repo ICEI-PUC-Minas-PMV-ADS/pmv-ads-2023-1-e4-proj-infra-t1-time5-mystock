@@ -15,6 +15,7 @@ import {
   getSubCategorys,
 } from "../../../services/api/subcategorys";
 import useAuth from "../../../context/auth";
+import NotFound from "../../../components/notFound";
 
 export default function SubcategorysManagement() {
   const [actualCategory, setActualCategory] = useState();
@@ -105,9 +106,7 @@ export default function SubcategorysManagement() {
           </ContainerCards>
         </>
       ) : (
-        <>
-          <p>Não subcategorias para serem gerenciadas</p>
-        </>
+        <NotFound entity="subcategorias" />
       )}
     </Container>
   );
