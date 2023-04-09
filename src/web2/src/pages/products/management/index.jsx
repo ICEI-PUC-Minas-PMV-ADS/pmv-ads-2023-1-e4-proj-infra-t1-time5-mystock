@@ -14,6 +14,7 @@ import { getProducts } from "../../../services/api/products";
 import { getCategorys } from "../../../services/api/categorys";
 import { getSubCategorys } from "../../../services/api/subcategorys";
 import { deleteProduct } from "../../../services/api/products";
+import NotFound from "../../../components/notFound";
 
 export default function ProductManagement() {
   const [actualSubCatgory, setActualSubCategory] = useState(0);
@@ -117,9 +118,7 @@ export default function ProductManagement() {
           </ContainerCards>
         </Fragment>
       ) : (
-        <>
-          <p>Não há produtos para serem gerenciados</p>
-        </>
+        <NotFound entity="produtos" />
       )}
     </Container>
   );

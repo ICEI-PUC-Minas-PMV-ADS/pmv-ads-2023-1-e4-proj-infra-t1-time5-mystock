@@ -2,6 +2,7 @@ import { Navigate, Outlet } from "react-router";
 import Header from "../../components/header";
 import useAuth from "../../context/auth";
 import { MainApplication } from "./styles";
+import Footer from "../../components/footer";
 
 export default function BaseApplication() {
   const { user, token } = useAuth();
@@ -11,6 +12,7 @@ export default function BaseApplication() {
       <MainApplication>
         <Header />
         <Outlet />
+        <Footer />
       </MainApplication>
     );
   } else {

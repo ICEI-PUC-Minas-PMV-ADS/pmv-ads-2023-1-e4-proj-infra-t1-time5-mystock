@@ -42,7 +42,6 @@ export default function CategoryManagement() {
                     updatedAt={null}
                     createdAt={null}
                     id={category.id}
-                    m3
                     type="categoria"
                     api={deleteCategory}
                     invalidateQuery={"categorysManagmente"}
