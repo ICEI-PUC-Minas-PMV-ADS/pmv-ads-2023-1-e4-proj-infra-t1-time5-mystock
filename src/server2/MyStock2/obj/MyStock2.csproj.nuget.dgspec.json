@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj": {}
+    "C:\\Users\\Pichau\\Documents\\PUC 4º Semestre Definitivo\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj": {
+    "C:\\Users\\Pichau\\Documents\\PUC 4º Semestre Definitivo\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
+        "projectUniqueName": "C:\\Users\\Pichau\\Documents\\PUC 4º Semestre Definitivo\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
         "projectName": "MyStock2",
-        "projectPath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
-        "packagesPath": "C:\\Users\\Notebook Acer\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\obj\\",
+        "projectPath": "C:\\Users\\Pichau\\Documents\\PUC 4º Semestre Definitivo\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pichau\\Documents\\PUC 4º Semestre Definitivo\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Notebook Acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -50,23 +48,19 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.3, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -92,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.408\\RuntimeIdentifierGraph.json"
         }
       }
     }

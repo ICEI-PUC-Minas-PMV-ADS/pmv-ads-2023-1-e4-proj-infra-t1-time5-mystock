@@ -1,17 +1,17 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import ProductManagement from "./pages/products/management";
-import BaseApplication from "./pages/baseApplication";
-import CategoryManagement from "./pages/categorys/management";
-import Login from "./pages/login";
-import SignIn from "./pages/signIn";
-import EditProducts from "./pages/products/edit";
-import EditCategorys from "./pages/categorys/edit";
-import SubcategorysManagement from "./pages/subcategorys/management";
-import RegisterProduct from "./pages/products/register";
-import RegisterCategorys from "./pages/categorys/register";
-import RegisterSubCategorys from "./pages/subcategorys/register";
-import EditSubcategorys from "./pages/subcategorys/edit";
-import NotFound from "./components/notFound";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import ProductManagement from './pages/products/management'
+import BaseApplication from './pages/baseApplication'
+import CategoryManagement from './pages/categorys/management'
+import Login from './pages/login'
+import SignIn from './pages/signIn'
+import EditProducts from './pages/products/edit'
+import EditCategorys from './pages/categorys/edit'
+import SubcategorysManagement from './pages/subcategorys/management'
+import RegisterProduct from './pages/products/register'
+import RegisterCategorys from './pages/categorys/register'
+import RegisterSubCategorys from './pages/subcategorys/register'
+import EditSubcategorys from './pages/subcategorys/edit'
+import EditUser from './pages/user'
 
 function App() {
   return (
@@ -37,12 +37,13 @@ function App() {
             path="subcategorys/edit/:id"
             element={<EditSubcategorys />}
           ></Route>
+          <Route path="user" element={<EditUser />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App
