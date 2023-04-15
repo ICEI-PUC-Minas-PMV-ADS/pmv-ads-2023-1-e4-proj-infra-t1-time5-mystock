@@ -9,6 +9,8 @@ import {
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import useAuth from "../../context/auth";
+import MyStock from "../../assets/images/MyStock.png";
+import { AiOutlineUser } from "react-icons/ai";
 
 export default function Header() {
   const [menu, setMenu] = useState(false);
@@ -17,7 +19,7 @@ export default function Header() {
 
   return (
     <HeaderStyles>
-      <h2 onClick={() => navigate("/products")}>myStock</h2>
+      <img onClick={() => navigate("/products")} src={MyStock} alt="logo" />
       <RxHamburgerMenu
         className="hamburguer"
         onClick={() => {
@@ -80,7 +82,10 @@ export default function Header() {
         </ul>
         {user && (
           <DataUser>
-            <ImageUser />
+            <ImageUser>
+              <AiOutlineUser size="35px" style={{ marginTop: "5px" }} />
+            </ImageUser>
+
             <NameUser>
               <h3>
                 {user.name} {user.sobrenome}

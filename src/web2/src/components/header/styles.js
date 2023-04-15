@@ -10,11 +10,9 @@ export const HeaderStyles = styled.div`
   position: relative;
   align-items: center;
 
-  h2 {
-    font-weight: 400;
-    margin: 0;
+  img {
+    max-width: 150px;
     cursor: pointer;
-    flex: 1;
   }
 
   .hamburguer {
@@ -136,4 +134,7 @@ export const ImageUser = styled.div`
   height: 40px;
   border-radius: 50%;
   border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

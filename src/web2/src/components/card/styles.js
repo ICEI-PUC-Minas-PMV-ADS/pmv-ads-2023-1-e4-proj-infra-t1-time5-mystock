@@ -3,9 +3,8 @@ import styled from "styled-components";
 export const CardStyle = styled.div`
   display: flex;
   max-width: ${(props) => {
-    if (props.m3) return "32%";
-    else if (props.max) return "100%";
-    else return "49%";
+    if (props.max) return "100%";
+    else return "32%";
   }};
   width: 100%;
   height: ${(props) => (props.max ? "100%" : "200px")};

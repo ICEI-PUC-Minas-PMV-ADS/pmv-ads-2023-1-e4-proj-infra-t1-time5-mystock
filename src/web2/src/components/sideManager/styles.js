@@ -7,7 +7,6 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   height: fit-content;
-  margin-bottom: 10px;
 
   p {
     color: #fff;
@@ -20,11 +19,13 @@ export const Container = styled.div`
     border: none;
     cursor: pointer;
     display: flex;
-    gap: 10px;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
     p {
       font-weight: 300;
       font-size: 15px;
+      margin: 0;
       :hover {
         color: #ccc;
       }
