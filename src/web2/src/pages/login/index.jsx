@@ -18,6 +18,8 @@ import FilledButton from "../../components/filledButton";
 import MessageError from "../../components/messageError";
 import useAuth from "../../context/auth";
 import { Form } from "../../styleGlobal/styles";
+import Background from "../../assets/images/background.png";
+import ManBlue from "../../assets/images/login-image.png";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -67,7 +69,7 @@ export default function Login() {
 
   return (
     <Container>
-      <LeftLogin image="images/background.png">
+      <LeftLogin image={Background}>
         <ContainerText>
           <Text>Olá,</Text>
           <h2>Bem vindo ao myStock!</h2>
@@ -76,7 +78,7 @@ export default function Login() {
         <ContainerImg>
           <img
             className="principal"
-            src="images/login-image.png"
+            src={ManBlue}
             alt="desenho de um homem de camisa azul e barba colocando um icone em um tablet"
           />
         </ContainerImg>

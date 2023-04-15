@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "r7GJmwvmI4eYiMDFp6zAvfMgvspp73CXTQedGaJICO7o3sxzZk5dSP5fBzhplMrHPSLMCkMdMT3oAUSoCXUW7A==",
+  "dgSpecHash": "lTH1Yt4kIbGVzpQLapkqndKsBca1BxlKo5GUmUT+LjEMLnRQg7LISPtOZBM88S1QlGWi5sdOYZi0qSOnqHp2QA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\MyStock2\\MyStock2.csproj",
+  "projectFilePath": "C:\\Users\\Notebook Acer\\Projects\\pmv-ads-2023-1-e4-proj-infra-t1-time5-mystock\\src\\server2\\myStock2\\MyStock2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Notebook Acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Notebook Acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
