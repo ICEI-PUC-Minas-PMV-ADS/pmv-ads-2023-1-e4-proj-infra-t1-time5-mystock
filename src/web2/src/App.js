@@ -12,6 +12,7 @@ import RegisterCategorys from "./pages/categorys/register";
 import RegisterSubCategorys from "./pages/subcategorys/register";
 import EditSubcategorys from "./pages/subcategorys/edit";
 import NotFound from "./components/notFound";
+import EditUser from "./pages/user";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             path="subcategorys/edit/:id"
             element={<EditSubcategorys />}
           ></Route>
+          <Route path="user" element={<EditUser />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<SignIn />} />

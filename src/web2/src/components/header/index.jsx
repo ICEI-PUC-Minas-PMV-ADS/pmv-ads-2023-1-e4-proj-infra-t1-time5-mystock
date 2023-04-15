@@ -81,7 +81,11 @@ export default function Header() {
           </li>
         </ul>
         {user && (
-          <DataUser>
+          <DataUser
+            onClick={() => {
+              navigate("/user");
+            }}
+          >
             <ImageUser>
               <AiOutlineUser size="35px" style={{ marginTop: "5px" }} />
             </ImageUser>
