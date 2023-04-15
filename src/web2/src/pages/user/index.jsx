@@ -1,6 +1,5 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router";
+import { useState } from "react";
 import {
   Container,
   RightLogin,
@@ -17,12 +16,13 @@ import http from "../../services/http";
 
 export default function EditUser() {
   const [loading, setLoading] = useState(false);
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
   const [messageError, setMessageError] = useState({
     type: "",
     message: "",
     open: false,
   });
+
   const formik = useFormik({
     initialValues: {
       name: user && user.name,
@@ -107,7 +107,13 @@ export default function EditUser() {
           )}
         </Form>
         <EndingText>
-          <h4>Sair</h4>
+          <h4
+            onClick={() => {
+              logout();
+            }}
+          >
+            Sair
+          </h4>
         </EndingText>
       </RightLogin>
     </Container>

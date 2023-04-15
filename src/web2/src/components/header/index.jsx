@@ -83,7 +83,7 @@ export default function Header() {
         {user && (
           <DataUser
             onClick={() => {
-              navigate("/user");
+              logout();
             }}
           >
             <ImageUser>
