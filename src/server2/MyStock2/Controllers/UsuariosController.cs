@@ -54,6 +54,8 @@ namespace MyStock.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Atualizar(int id, Usuario model)
         {
+            model.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+
             if (id != model.Id) return BadRequest();
 
             var modelo = await _context.usuarios.AsNoTracking().
