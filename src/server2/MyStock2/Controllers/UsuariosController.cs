@@ -32,7 +32,7 @@ namespace MyStock.Controllers
         [HttpPost]
         public async Task<ActionResult> Criar(Usuario model)
         {
-            model.Senha= BCrypt.Net.BCrypt.HashPassword(model.Senha);
+            model.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
 
             _context.usuarios.Add(model);
             await _context.SaveChangesAsync();
@@ -51,19 +51,24 @@ namespace MyStock.Controllers
             return Ok(model);
 
         }
-        [HttpPut("{id}")]
+        [HttpPatch("{id}")]
         public async Task<ActionResult> Atualizar(int id, Usuario model)
         {
-            model.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+           
 
             if (id != model.Id) return BadRequest();
 
-            var modelo = await _context.usuarios.AsNoTracking().
+            var modelo = await _context.usuarios.
                 FirstOrDefaultAsync(c => c.Id == id);
 
             if (modelo == null) return BadRequest();
 
-            _context.usuarios.Update(model);
+            modelo.Name = model.Name;
+            modelo.Sobrenome = model.Sobrenome;
+            modelo.Email = model.Email;
+            modelo.Senha = BCrypt.Net.BCrypt.HashPassword(model.Senha);
+
+            _context.usuarios.Update(modelo);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -85,14 +90,14 @@ namespace MyStock.Controllers
         [HttpPost("{Autenticacao}")]
         public async Task<ActionResult> Autenticacao(AutenticacaoDto model)
         {
-            var dbusuario = await _context.usuarios.FirstOrDefaultAsync( c => c.Email == model.Email);
-            
+            var dbusuario = await _context.usuarios.FirstOrDefaultAsync(c => c.Email == model.Email);
+
             if (dbusuario == null || !BCrypt.Net.BCrypt.Verify(model.Senha, dbusuario.Senha))
                 return Unauthorized();
 
             var jwt = GerarJwtToken(dbusuario);
 
-            return Ok(new {jwtToken= jwt,dbusuario= dbusuario});
+            return Ok(new { jwtToken = jwt, dbusuario = dbusuario });
         }
 
         private object GerarJwtToken(Usuario model)
