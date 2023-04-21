@@ -34,7 +34,7 @@ export default function EditUser() {
       setLoading(true);
       localStorage.setItem("user", JSON.stringify({ ...values, id: user.id }));
       http
-        .put(`api/Usuarios/${user.id}`, {
+        .patch(`api/Usuarios/${user.id}`, {
           id: user.id,
           name: values.name,
           sobrenome: values.sobrenome,
