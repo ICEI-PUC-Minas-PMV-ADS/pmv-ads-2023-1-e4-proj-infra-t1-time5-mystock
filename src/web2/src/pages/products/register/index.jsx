@@ -25,6 +25,7 @@ import SelectPersonality from "../../../components/select";
 import MessageError from "../../../components/messageError";
 import { Formik } from "formik";
 import Card from "../../../components/card";
+import relatorio from "../../../services/relatorio";
 
 export default function RegisterProduct() {
   const [loading, setLoading] = useState(false);
@@ -106,6 +107,21 @@ export default function RegisterProduct() {
     setCategory(subCategorias);
   }, [filterId, dataSubcategorys.data]);
 
+  async function relatorioProdutos(nome, quantidade) {
+    await relatorio
+      .post("/products", {
+        nome: nome,
+        quantidade: quantidade,
+        data_registro: new Date(),
+      })
+      .then(() => {
+        console.log("Tudo certo");
+      })
+      .catch((e) => {
+        console.dir(e);
+      });
+  }
+
   return (
     <Container>
       {category && category[actualCategory] ? (
@@ -120,6 +136,18 @@ export default function RegisterProduct() {
               onSubmit={(values) => {
                 setLoading(true);
                 mutation.mutate(values);
+                relatorio
+                  .post("/products", {
+                    nome: values.nome,
+                    quantidade: values.quantidade,
+                    data_registro: new Date(),
+                  })
+                  .then(() => {
+                    console.log("Tudo certo");
+                  })
+                  .catch((e) => {
+                    console.dir(e);
+                  });
               }}
             >
               {(props) => (
