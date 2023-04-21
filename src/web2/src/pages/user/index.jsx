@@ -107,13 +107,13 @@ export default function EditUser() {
           )}
         </Form>
         <EndingText>
-          <h4
+          <h3
             onClick={() => {
               logout();
             }}
           >
             Sair
-          </h4>
+          </h3>
         </EndingText>
       </RightLogin>
     </Container>

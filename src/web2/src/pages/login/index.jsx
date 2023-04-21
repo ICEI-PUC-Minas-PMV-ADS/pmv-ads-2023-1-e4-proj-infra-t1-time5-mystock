@@ -13,6 +13,7 @@ import {
   Text,
   Input,
   Label,
+  ContainerPassword,
 } from "../../components/componentsForm/stylesGlobal";
 import FilledButton from "../../components/filledButton";
 import MessageError from "../../components/messageError";
@@ -20,15 +21,24 @@ import useAuth from "../../context/auth";
 import { Form } from "../../styleGlobal/styles";
 import Background from "../../assets/images/background.png";
 import ManBlue from "../../assets/images/login-image.png";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
-  const { login } = useAuth();
+  const { login, user, token } = useAuth();
+  const [typeInput, setTypeInput] = useState("password");
   const [messageError, setMessageError] = useState({
     type: "",
     message: "",
     open: false,
   });
+
+  useEffect(() => {
+    if (user || token) {
+      navigate("/products");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user, token]);
 
   const navigate = useNavigate();
 
@@ -67,6 +77,14 @@ export default function Login() {
     },
   });
 
+  function showPassword() {
+    if (typeInput === "password") {
+      setTypeInput("text");
+    } else {
+      setTypeInput("password");
+    }
+  }
+
   return (
     <Container>
       <LeftLogin image={Background}>
@@ -98,12 +116,21 @@ export default function Login() {
               onChange={formik.handleChange}
             />
             <Label>Senha</Label>
-            <Input
-              type="password"
-              name="senha"
-              placeholder="*******"
-              onChange={formik.handleChange}
-            />
+            <ContainerPassword>
+              <Input
+                type={typeInput}
+                name="senha"
+                placeholder="*******"
+                onChange={formik.handleChange}
+              />
+              <span className="eye" onClick={showPassword}>
+                {typeInput === "text" ? (
+                  <AiOutlineEyeInvisible size={20} />
+                ) : (
+                  <AiOutlineEye size={20} />
+                )}
+              </span>
+            </ContainerPassword>
           </TextField>
           <FilledButton loading={loading} type="submit">
             Entrar

@@ -25,7 +25,11 @@ export const CardStyle = styled.div`
     font-size: ${(props) => (props.max ? "25px" : "20px")};
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 1050px) {
+    max-width: 50%;
+  }
+
+  @media (max-width: 800px) {
     max-width: 100%;
   }
 `;

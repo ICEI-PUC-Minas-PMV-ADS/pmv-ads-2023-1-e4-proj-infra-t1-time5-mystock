@@ -42,7 +42,7 @@ export const ContentNav = styled.nav`
       list-style: none;
       position: relative;
 
-      a {
+      p {
         font-size: 14px;
         font-weight: 300;
         cursor: pointer;

@@ -116,10 +116,12 @@ export const EndingText = styled.div`
   flex-direction: column;
   max-width: 400px;
   margin-top: 15px;
-  h4 {
-    font-size: 12px;
+  text-align: center;
+  margin-top: 20px;
+  h3 {
     font-weight: 400;
     line-height: 15px;
+    cursor: pointer;
   }
   a {
     text-decoration: none;
@@ -137,4 +139,16 @@ export const Select = styled.select`
   color: #f0ffffde;
   font-size: 12px;
   outline: none;
+`;
+
+export const ContainerPassword = styled.div`
+  position: relative;
+  width: 100%;
+
+  .eye {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+  }
 `;

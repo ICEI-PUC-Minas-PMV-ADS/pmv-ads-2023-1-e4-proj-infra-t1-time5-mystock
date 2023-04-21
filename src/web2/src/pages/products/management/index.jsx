@@ -23,7 +23,7 @@ export default function ProductManagement() {
   const { data } = useQuery("products", getProducts);
   const [categorysFilter, setCategorysFilter] = useState();
   const [filterId, setFilterId] = useState();
-  const [test, setTest] = useState();
+  const [subcategory, setSubcategory] = useState();
   const [filterAmount, setFilterAmount] = useState();
 
   const categorys = useQuery("categorysProduct", getCategorys, {
@@ -50,20 +50,20 @@ export default function ProductManagement() {
         )
       : [];
 
-    setTest(subCategorias);
+      setSubcategory(subCategorias);
   }, [filterId, subcategorys.data]);
 
   useEffect(() => {
-    if (test && test[actualSubCatgory]) {
+    if (subcategory && subcategory[actualSubCatgory]) {
       setFilterAmount(
-        data.filter((x) => x.subCategoriaId === test[actualSubCatgory].id)
+        data.filter((x) => x.subCategoriaId === subcategory[actualSubCatgory].id)
       );
     }
-  }, [actualSubCatgory, test, data]);
+  }, [actualSubCatgory, subcategory, data]);
 
   return (
     <Container>
-      {categorys && data && categorysFilter && test && filterAmount ? (
+      {categorys && data && categorysFilter && subcategory && filterAmount ? (
         <Fragment>
           <ContainerForm>
             <TitlePages marginTop="40px">
@@ -81,7 +81,7 @@ export default function ProductManagement() {
                       category={category}
                       setActualSubCategory={setActualSubCategory}
                       setShowProducts={setShowProducts}
-                      subCategorys={test}
+                      subCategorys={subcategory}
                     />
                   );
                 })}
@@ -95,11 +95,11 @@ export default function ProductManagement() {
             <CardsWrapper>
               {filterAmount &&
               filterAmount.length > 0 &&
-              test[actualSubCatgory] ? (
+              subcategory[actualSubCatgory] ? (
                 data.map((product, index) => {
                   return (
                     <>
-                      {product.subCategoriaId === test[actualSubCatgory].id && (
+                      {product.subCategoriaId === subcategory[actualSubCatgory].id && (
                         <Card
                           key={index}
                           name={product.nome}

@@ -57,13 +57,17 @@ export default function Footer() {
                     <a>Victor Gammaro</a>
                   </li>
                 </ul>
+                <p className="professor">
+                  Professor: Felipe Augusto Lara Soares
+                </p>
               </div>
             </Content>
           </Members>
         </Content>
       </Container>
       <BaseFooter>
-        <p>Puc Minas - 2023</p>
+        <p>Puc Minas</p>
+        <p>Análise e Desenvolvimento de Sistemas - 1° semestre de 2023</p>
         <img onClick={() => navigate("/products")} src={MyStock} alt="logo" />
       </BaseFooter>
     </FooterStyles>

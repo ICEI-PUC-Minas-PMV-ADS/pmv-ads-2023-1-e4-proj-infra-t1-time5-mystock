@@ -13,9 +13,9 @@ export const Container = styled.div`
     font-weight: 400;
   }
   button {
-    width: fit-content;
-    height: fit-content;
     background-color: transparent;
+    width: fit-content;
+    height: 40px;
     border: none;
     cursor: pointer;
     display: flex;

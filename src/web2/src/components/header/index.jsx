@@ -29,47 +29,47 @@ export default function Header() {
       <ContentNav display={menu}>
         <ul>
           <li>
-            <a
+            <p
               onClick={() => {
                 navigate("/products");
                 setMenu(false);
               }}
             >
               Produtos
-            </a>
+            </p>
           </li>
           <li>
-            <a
+            <p
               onClick={() => {
                 navigate("/subcategorys");
                 setMenu(false);
               }}
             >
               Subcategorias
-            </a>
+            </p>
           </li>
           <li>
-            <a
+            <p
               onClick={() => {
                 navigate("/categorys");
                 setMenu(false);
               }}
             >
               Categorias
-            </a>
+            </p>
           </li>
           <li className="user-data">
-            <a
+            <p
               onClick={() => {
-                navigate("/");
+                navigate("/user");
                 setMenu(false);
               }}
             >
               Meus dados
-            </a>
+            </p>
           </li>
           <li className="user-data">
-            <a
+            <p
               onClick={() => {
                 logout().then(() => {
                   navigate("/login");
@@ -77,13 +77,13 @@ export default function Header() {
               }}
             >
               Sair
-            </a>
+            </p>
           </li>
         </ul>
         {user && (
           <DataUser
             onClick={() => {
-              logout();
+              navigate("/user");
             }}
           >
             <ImageUser>

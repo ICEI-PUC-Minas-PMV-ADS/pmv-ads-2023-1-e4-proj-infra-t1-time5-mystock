@@ -26,8 +26,16 @@ export const Content = styled.div`
   display: flex;
   gap: 40px;
 
+  .professor {
+    margin-top: 40px;
+  }
+
   @media (max-width: 700px) {
     flex-direction: ${(props) => (props.row ? "row" : "column")};
+
+    .professor {
+      margin-top: 0px;
+    }
   }
 `;
 
@@ -90,6 +98,7 @@ export const BaseFooter = styled.div`
   justify-content: center;
   margin-top: 40px;
   padding: 10px 0 5px 0;
+  gap: 10px;
 
   p {
     font-size: 14px;

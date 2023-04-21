@@ -31,7 +31,7 @@ export default function RegisterProduct() {
   const [categorys, setCategorys] = useState();
   const { user } = useAuth();
   const [filterId, setFilterId] = useState([]);
-  const [teste, setTest] = useState();
+  const [category, setCategory] = useState();
   const [actualCategory, setActualCategory] = useState(0);
   const [messageError, setMessageError] = useState({
     type: "",
@@ -103,19 +103,19 @@ export default function RegisterProduct() {
         )
       : [];
 
-    setTest(subCategorias);
+    setCategory(subCategorias);
   }, [filterId, dataSubcategorys.data]);
 
   return (
     <Container>
-      {teste && teste[actualCategory] ? (
+      {category && category[actualCategory] ? (
         <>
           <ContainerForm>
             <Formik
               initialValues={{
                 nome: "",
                 quantidade: "",
-                subCategoriaId: teste[0] && teste[0].id,
+                subCategoriaId: category[0] && category[0].id,
               }}
               onSubmit={(values) => {
                 setLoading(true);
@@ -149,9 +149,10 @@ export default function RegisterProduct() {
                       <Label>Subcategoria</Label>
                       <SelectPersonality
                         value={
-                          teste[actualCategory] && teste[actualCategory].nome
+                          category[actualCategory] &&
+                          category[actualCategory].nome
                         }
-                        itensList={teste}
+                        itensList={category}
                         setActualCategory={setActualCategory}
                         onChange={(value) => {
                           props.setFieldValue("subCategoriaId", value);
@@ -174,12 +175,12 @@ export default function RegisterProduct() {
             </Formik>
           </ContainerForm>
           <ContainerCards>
-            {teste &&
-              teste[actualCategory] &&
+            {category &&
+              category[actualCategory] &&
               data &&
               data.map((product) => {
                 return (
-                  product.subCategoriaId === teste[actualCategory].id && (
+                  product.subCategoriaId === category[actualCategory].id && (
                     <Card key={product.id} name={product.nome} />
                   )
                 );
