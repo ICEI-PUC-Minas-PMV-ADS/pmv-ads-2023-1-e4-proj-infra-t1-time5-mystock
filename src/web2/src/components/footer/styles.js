@@ -14,6 +14,10 @@ export const FooterStyles = styled.div`
     font-size: 14px;
     font-weight: 400;
   }
+
+  @media print {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`

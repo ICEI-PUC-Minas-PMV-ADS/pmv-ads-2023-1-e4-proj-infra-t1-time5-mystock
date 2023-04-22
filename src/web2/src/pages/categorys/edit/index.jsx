@@ -29,7 +29,7 @@ export default function EditCategorys() {
     open: false,
   });
   const { id } = useParams();
-  const { data, isLoading } = useQuery(["categorysEdit", id], getCategoryById, {
+  const { isLoading } = useQuery(["categorysEdit", id], getCategoryById, {
     onSuccess: (data) => {
       for (let key in data) {
         formik.setFieldValue(key, data[key]);

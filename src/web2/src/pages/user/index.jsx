@@ -13,6 +13,8 @@ import MessageError from "../../components/messageError";
 import useAuth from "../../context/auth";
 import { Form } from "../../styleGlobal/styles";
 import http from "../../services/http";
+import { ContainerOptionReport, OptionReport } from "./styles";
+import { useNavigate } from "react-router";
 
 export default function EditUser() {
   const [loading, setLoading] = useState(false);
@@ -22,6 +24,8 @@ export default function EditUser() {
     message: "",
     open: false,
   });
+
+  const navigate = useNavigate();
 
   const formik = useFormik({
     initialValues: {
@@ -33,6 +37,7 @@ export default function EditUser() {
     onSubmit: (values) => {
       setLoading(true);
       localStorage.setItem("user", JSON.stringify({ ...values, id: user.id }));
+
       http
         .patch(`api/Usuarios/${user.id}`, {
           id: user.id,
@@ -61,6 +66,15 @@ export default function EditUser() {
   return (
     <Container>
       <RightLogin>
+        <ContainerOptionReport>
+          <OptionReport
+            onClick={() => {
+              navigate("/products/report");
+            }}
+          >
+            <p>Relatório de Produtos</p>
+          </OptionReport>
+        </ContainerOptionReport>
         <Form onSubmit={formik.handleSubmit}>
           <TextField>
             <Label>Primeiro Nome</Label>

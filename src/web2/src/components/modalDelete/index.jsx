@@ -1,7 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
-import { deleteCategory } from "../../services/api/categorys";
 import {
   DescriptionPages,
   TitlePages,

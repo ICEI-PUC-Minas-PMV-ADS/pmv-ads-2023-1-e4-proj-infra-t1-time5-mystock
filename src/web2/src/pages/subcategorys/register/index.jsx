@@ -1,4 +1,4 @@
-import { Formik, useFormik } from "formik";
+import { Formik } from "formik";
 import { useState } from "react";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import Card from "../../../components/card";
@@ -84,18 +84,6 @@ export default function RegisterSubCategorys() {
     },
   });
 
-  const formik = useFormik({
-    initialValues: {
-      nome: "",
-      categoriaId: "",
-    },
-
-    onSubmit: (values) => {
-      setLoading(true);
-      mutation.mutate(values);
-    },
-  });
-
   const initialValues = {
     nome: "",
     categoriaId: categorys && categorys[actualCategory].id,
@@ -163,9 +151,11 @@ export default function RegisterSubCategorys() {
           <ContainerCards>
             {dataSubctagorys.data &&
               dataSubctagorys.data.map((subCategory, index) => {
-                if (subCategory.categoriaId === initialValues.categoriaId) {
-                  return <Card key={index} name={subCategory.nome} register />;
-                }
+                return (
+                  subCategory.categoriaId === initialValues.categoriaId && (
+                    <Card key={index} name={subCategory.nome} register />
+                  )
+                );
               })}
           </ContainerCards>
         </>

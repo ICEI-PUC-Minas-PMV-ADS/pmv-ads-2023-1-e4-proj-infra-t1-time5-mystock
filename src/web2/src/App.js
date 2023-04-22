@@ -11,8 +11,8 @@ import RegisterProduct from "./pages/products/register";
 import RegisterCategorys from "./pages/categorys/register";
 import RegisterSubCategorys from "./pages/subcategorys/register";
 import EditSubcategorys from "./pages/subcategorys/edit";
-import NotFound from "./components/notFound";
 import EditUser from "./pages/user";
+import ReportsProducts from "./pages/reportProducts";
 
 function App() {
   return (
@@ -39,6 +39,7 @@ function App() {
             element={<EditSubcategorys />}
           ></Route>
           <Route path="user" element={<EditUser />} />
+          <Route path="/products/report" element={<ReportsProducts />} />
         </Route>
         <Route path="login" element={<Login />} />
         <Route path="register" element={<SignIn />} />

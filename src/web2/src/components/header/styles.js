@@ -10,6 +10,10 @@ export const HeaderStyles = styled.div`
   position: relative;
   align-items: center;
 
+  @media print {
+    display: none;
+  }
+
   img {
     max-width: 150px;
     cursor: pointer;

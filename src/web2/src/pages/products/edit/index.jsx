@@ -16,7 +16,7 @@ import {
   TitlePages,
 } from "../../../styleGlobal/styles";
 import { deleteProduct } from "../../../services/api/products";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { getSubCategorys } from "../../../services/api/subcategorys";
 import Spinner from "../../../components/spinner";
@@ -82,11 +82,7 @@ export default function RegisterProduct() {
       )
     : [];
 
-  const nameSubcategory = useMemo(() => {
-    let filter = subCategorias.find((x) => x.id === subcategoryValue);
-
-    return filter;
-  }, [subCategorias, subcategoryValue]);
+  var nameSubcategory = subCategorias.find((x) => x.id === subcategoryValue);
 
   const mutation = useMutation((id) => editProduct(id), {
     onSuccess: () => {
