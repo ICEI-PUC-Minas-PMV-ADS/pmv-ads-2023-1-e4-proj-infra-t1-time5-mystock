@@ -1,12 +1,15 @@
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+Wireframes já apresentados no tópico de projeto de interface.
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+O exemplo a seguir demostra o padrão utilizado na aplicação.
 
-> **Links Úteis**:
->
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
+Cor de fundo: Foi definida uma coloraçõa mais escura pensando na usabilidade da aplicação pelo usuário, na qual o memso poderá utilizar por horas sem sofrer problemas de vista cansada devido a iluminação de algumas telas e aparelhos, preservando a sua integridade física.
+
+Informações de tela: Cores claras de fácil constraste para uma visualização clara do usuário, utiliando ainda a cor azul clara para destaque da tela em o usuário está utilizando.
+
+Ícones: Utilizando também colorações claras e imagens defácil interpretação para o usuário, proporcionando uma navegação intuitiva e simples.
+
+Estutura da tela: Segregação de informações bem definida onde o usuário consegue visualizar facilmente os locais de interação com a aplicação bem como um layout no qual demostra o máximo de informações úteis ao usuário sem necessidade de uma navegação cansativa.
+
+![template padrão](https://user-images.githubusercontent.com/91069587/233789625-085a888c-113f-433e-97d0-fcb85a0162d1.jpg)
