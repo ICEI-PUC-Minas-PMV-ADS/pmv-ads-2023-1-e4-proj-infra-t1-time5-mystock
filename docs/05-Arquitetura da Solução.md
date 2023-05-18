@@ -55,3 +55,30 @@ Eficiência:
 
 Manutenabilidade:
 -Serão realizados testes relacionados à lentidão durante o uso. Se tratando da reusabilidade da aplicação serão reduzidos custos e tempo no processo de desenvolvimento de modo a aumentar a qualidade, entre outras diversas vantagens.
+
+## Documentação API MyStock
+
+## Finalidade:
+
+-Receber requisição da aplicação web e mobile MyStock, para controle de estoque, onde a primeira requisição é de cadastro e após o login do cadastrado todas informações de estoque acessada estará vinculada a esse login.
+
+## Especificações da API:
+
+> - 	Protocolo HTTP
+> - 	JWT para gerar tokem de acesso
+> - 	Crud para criação de usuários, categorias, subcategorias e produtos
+> - 	Banco de dados SQL com SqlServer
+
+## Rotas:
+- /api/Usuarios
+- /api/Usuarios/{Autenticacao}
+- /api/Categorias
+- /api/Categorias/{UsuarioId}
+- /api/SubCategorias
+- /api/Produtos
+## OBS: Após feita a autenticação o ID  do usuário é passado como parâmetro para as categorias, fazendo com que os relacionamentos fiquem vinculados ao usuário logado.
+## OBS2: Para edição, visualização e exclusão o parâmetro é o ID correspondente colocado ao final da rota, exemplo:
+ - /api/Model-correspondente/{id}, esse exemplo serve para todas a rotas acima.
+
+
+
