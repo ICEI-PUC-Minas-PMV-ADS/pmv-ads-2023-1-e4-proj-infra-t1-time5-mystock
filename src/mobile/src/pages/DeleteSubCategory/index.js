@@ -119,7 +119,6 @@ export default function DeleteSubCategory() {
                     <Text style={styles.textButton}>Deletar</Text>
                 </TouchableOpacity>
             </View>
-
         </SafeAreaView>
     )
 }   
